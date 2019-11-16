@@ -125,6 +125,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1T9iTUSQw1uXswyGo43NrAC0wf0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/users" />
@@ -182,7 +183,7 @@
       <workItem from="1573401244867" duration="2019000" />
       <workItem from="1573647327551" duration="692000" />
       <workItem from="1573708048233" duration="6116000" />
-      <workItem from="1573724989282" duration="29758000" />
+      <workItem from="1573724989282" duration="30329000" />
     </task>
     <servers />
   </component>

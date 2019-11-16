@@ -8,7 +8,6 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-//use Illuminate\Support\Facades\Gate;
 
 
 class UsersController extends Controller
@@ -54,6 +53,11 @@ class UsersController extends Controller
     public function update(Request $request, User $user)
     {
         $user->roles()->sync($request->roles);
+
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->save();
 
         return redirect()->route('admin.users.index');
     }

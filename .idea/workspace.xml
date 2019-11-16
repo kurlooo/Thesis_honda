@@ -192,7 +192,7 @@
       <workItem from="1573647327551" duration="692000" />
       <workItem from="1573708048233" duration="6116000" />
       <workItem from="1573724989282" duration="30329000" />
-      <workItem from="1573894697852" duration="3121000" />
+      <workItem from="1573894697852" duration="3380000" />
     </task>
     <task id="LOCAL-00001" summary="Modifying Contents of Update Button in User Mgmt">
       <created>1573916072054</created>
@@ -201,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573916072055</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Modifying Contents of Update Button in User Mgmt">
+      <created>1573916364103</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573916364103</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

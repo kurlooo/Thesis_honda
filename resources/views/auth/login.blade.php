@@ -35,24 +35,6 @@
         border-top-left-radius: 0;
         border-top-right-radius: 0;
     }
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    .full-height {
-        height: 100vh;
-    }
-
-    .flex-center {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }
 
     .position{
         padding-top: 100px;

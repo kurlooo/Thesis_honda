@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7999b700-5688-4f83-a3ab-137573849a94" name="Default Changelist" comment="Add Button@dashboard to confirm accdg to role redirect page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+    <list default="true" id="7999b700-5688-4f83-a3ab-137573849a94" name="Default Changelist" comment="Add Button@dashboard to confirm accdg to role redirect page (route)">
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -219,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573916462397</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Button@dashboard to confirm accdg to role redirect page">
+      <created>1574316667213</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1574316667213</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +247,7 @@
     <MESSAGE value="Modifying Contents of Update Button in User Mgmt" />
     <MESSAGE value="Diff views to diff roles" />
     <MESSAGE value="Add Button@dashboard to confirm accdg to role redirect page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Button@dashboard to confirm accdg to role redirect page" />
+    <MESSAGE value="Add Button@dashboard to confirm accdg to role redirect page (route)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Button@dashboard to confirm accdg to role redirect page (route)" />
   </component>
 </project>

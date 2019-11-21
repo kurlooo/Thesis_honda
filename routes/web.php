@@ -26,13 +26,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 
 Route::get('/overview', function (){
-    return view('admin');
-})->name('admin')->middleware('checkrole');
+    return view('pages.admin');
+})->middleware('admin','auth');
 
 Route::get('/appointment', function (){
-    return view('svcmktg');
-})->middleware('checkrole');
+    return view('pages.svcmktg');
+})->middleware('svcmktg','auth');
 
 Route::get('/jobctrlsheet', function (){
-    return view('jobctrl');
-})->middleware('checkrole');
+    return view('pages.jobctrl');
+})->middleware('jobctrl','auth');

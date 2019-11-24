@@ -8,6 +8,11 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+global.moment= require('moment');
+
+require('tempusdominus-bootstrap-4');
+
+require('@fortawesome/fontawesome-free/js/all');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

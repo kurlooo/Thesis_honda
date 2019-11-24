@@ -26,23 +26,23 @@ class LoginController extends Controller
      *
      * @var string
      */
-//    protected $redirectTo;
+    protected $redirectTo = '/home';
 
-    protected function redirectTo()
-    {
-        if(Auth::check() && Auth::user()->hasRole('Admin')){
-            return '/';
-        }
-        elseif (Auth::check() && Auth::user()->hasRole('Service Marketing')) {
-            return '/appointment';
-        }
-        elseif (Auth::check() && Auth::user()->hasRole('Job Controller')) {
-            return '/jobctrlsheet';
-        }
-        else {
-            return view('pages.error');
-        }
-    }
+//    protected function redirectTo()
+//    {
+//        if(Auth::check() && Auth::user()->hasRole('Admin')){
+//            return redirect('/overview');
+//        }
+//        elseif (Auth::check() && Auth::user()->hasRole('Service Marketing')) {
+//            return redirect('/appointment');
+//        }
+//        elseif (Auth::check() && Auth::user()->hasRole('Job Controller')) {
+//            return redirect('/jobctrlsheet');
+//        }
+//        else {
+//            return view('pages.error');
+//        }
+//    }
 
     /**
      * Create a new controller instance.

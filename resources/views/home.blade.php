@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
-<style>
-    .pos {
-        margin-top: 10px;
+<title>Home</title>
 
+<style>
+    .pos{
+        margin-top: 10px;
     }
 </style>
 
@@ -14,27 +15,25 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
-                    <div class="card-body">
+                    <div class="card-body align-content-center">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
+                            You are logged in as {{ Auth::user()->roles()->pluck('name')}} !
 
                             @can('show-appoint')
-                            <div class="pos">
-                                You are the Service Marketing!
-                                <a href="{{url('/appointment')}}"><button type="button" class="btn btn-outline-primary">Confirm</button></a>
-                            </div>
+                                <div class="pos">
+                                    <a href="{{url('/appointment')}}"><button type="button" class="btn btn-outline-primary">Confirm</button></a>
+                                </div>
                             @endcan
 
                             @can('show-jcs')
                                 <div class="pos">
-                                    You are the Job Controller
                                     <a href="{{url('/jobctrlsheet')}}"><button type="button" class="btn btn-outline-primary">Confirm</button></a>
                                 </div>
                             @endcan
-
 
                     </div>
 

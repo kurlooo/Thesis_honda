@@ -112,7 +112,7 @@
                                     <div class="row ml-2">
                                         <div class="col-md-8 mb-4">
                                             <label for="remarks">Remarks</label>
-                                            <input type="text" placeholder="Please put remarks." class="form-control @error('remarks') is-invalid @enderror" name="remarks" required>
+                                            <input type="text" class="form-control @error('remarks') is-invalid @enderror" name="remarks">
                                             @error('remarks')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

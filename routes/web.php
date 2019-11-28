@@ -33,6 +33,14 @@ Route::get('/appointment', function (){
     return view('pages.svcmktg');
 })->middleware('svcmktg','auth');
 
+//Route::middleware('svcmktg')->group({
+//    Route::get('appointment', 'AppointmentController@index');
+//    Route::post('appointment','AppointmentController@store');
+//});
+Route::get('/appointment', 'AppointmentController@index')->name('hello')->middleware('svcmktg','auth');
+
+Route::post('/appointment','AppointmentController@app')->name('insert')->middleware('svcmktg','auth');
+
 Route::get('/jobctrlsheet', function (){
     return view('pages.jobctrl');
 })->middleware('jobctrl','auth');

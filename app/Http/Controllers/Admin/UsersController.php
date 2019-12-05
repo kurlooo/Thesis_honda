@@ -50,6 +50,7 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, User $user)
     {
         $user->roles()->sync($request->roles);

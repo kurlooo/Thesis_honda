@@ -29,18 +29,26 @@ Route::get('/overview', function (){
     return view('pages.admin');
 })->middleware('admin','auth');
 
-Route::get('/appointment', function (){
-    return view('pages.svcmktg');
-})->middleware('svcmktg','auth');
+//Route::get('/appointment', function (){
+//    return view('pages.svcmktg');
+//})->middleware('svcmktg','auth');
 
-//Route::middleware('svcmktg')->group({
-//    Route::get('appointment', 'AppointmentController@index');
-//    Route::post('appointment','AppointmentController@store');
+//Route::middleware('svcmktg','auth')->group( function() {
+//    Route::get('/appointment', 'AppointmentController@index')->name('hello');
+//    Route::post('/appointment','AppointmentController@app')->name('insert');
+//    Route::post('/appointment','AppointmentController@delete')->name('panas');
 //});
-Route::get('/appointment', 'AppointmentController@index')->name('hello')->middleware('svcmktg','auth');
-
-Route::post('/appointment','AppointmentController@app')->name('insert')->middleware('svcmktg','auth');
+Route::middleware('svcmktg','auth')->group(function(){
+    Route::resource('/appointment','AppointmentController');
+});
+//Route::get('/appointment', 'AppointmentController@index')->name('hello')->middleware('svcmktg','auth');
+//Route::post('/appointment','AppointmentController@app')->name('insert')->middleware('svcmktg','auth');
+//Route::get('/appointment','AppointmentController@destroy')->name('panas')->middleware('svcmktg','auth');
 
 Route::get('/jobctrlsheet', function (){
     return view('pages.jobctrl');
 })->middleware('jobctrl','auth');
+
+//Route::get('haha', function(){
+//    return view('charan');
+//});

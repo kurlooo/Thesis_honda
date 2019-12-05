@@ -21,7 +21,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                            You are logged in as {{ Auth::user()->roles()->pluck('name')}} !
+                            You are logged in as {{ Auth::user()->roles()->pluck('name') }} !
 
                             @can('show-appoint')
                                 <div class="pos">

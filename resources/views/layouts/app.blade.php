@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+{{--    <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">--}}
 
     <style>
         body {
@@ -26,13 +26,33 @@
             height: 100vh;
             margin: 0;
         }
+
+        .navbar {
+            min-height: 80px;
+        }
+
+        .chour {
+            margin:auto;
+        }
+
+        table {
+            counter-reset: tableCount;
+        }
+
+        .counterCell:before {
+            content: counter(tableCount);
+            counter-increment: tableCount;
+        }
     </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand hello" href="{{url('/')}}">Honda</a>
+                <a class="navbar-brand" href="{{url('/')}}">
+                    <img src="{{asset('/img/honda-logo1.png')}}" alt="" width="50px">
+                    <span class="ml-1">Honda</span>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

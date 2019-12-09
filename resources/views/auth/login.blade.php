@@ -6,15 +6,6 @@
         height: 100%;
     }
 
-    /*body {*/
-    /*    display: -ms-flexbox;*/
-    /*    display: flex;*/
-    /*    -ms-flex-align: center;*/
-    /*    align-items: center;*/
-    /*    padding-top: 40px;*/
-    /*    padding-bottom: 40px;*/
-    /*    background-color: #f5f5f5;*/
-    /*}*/
 
     .form-signin {
         width: 100%;
@@ -138,9 +129,11 @@
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
+                <div class="text-center">
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                </div>
             @endif
 
             <p class="mt-5 mb-3 text-center text-muted">&copy; Bendelorm Technologies</p>

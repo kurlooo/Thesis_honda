@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7999b700-5688-4f83-a3ab-137573849a94" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/8110315536_d45c848d18_o.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_custom.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ListAppController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/listapp.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_26_071822_create_appointments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_26_071822_create_appointments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/charan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/charan.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/inc/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/svcmktg/svcmktg.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/svcmktg/svcmktg.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -247,7 +237,7 @@
       <workItem from="1575574671538" duration="10000" />
       <workItem from="1575574870508" duration="7000" />
       <workItem from="1575603040826" duration="26000" />
-      <workItem from="1575797744628" duration="32774000" />
+      <workItem from="1575797744628" duration="37207000" />
     </task>
     <task id="LOCAL-00001" summary="Modifying Contents of Update Button in User Mgmt">
       <created>1573916072054</created>
@@ -319,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575573872037</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Slight mods on UI login, register page. Validation on set appointment modal">
+      <created>1575874463050</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1575874463050</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +344,8 @@
     <MESSAGE value="Service Manager Appointment v1.5" />
     <MESSAGE value="Remarks" />
     <MESSAGE value="CRUD Appointment Page with DataTable, Added Logo on Navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD Appointment Page with DataTable, Added Logo on Navbar" />
+    <MESSAGE value="Slight mods on UI login, register page. Validation on set appointment modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slight mods on UI login, register page. Validation on set appointment modal" />
   </component>
   <component name="WindowStateProjectService">
     <state x="977" y="213" width="802" height="679" key="#SQL_Dialects" timestamp="1575309099376">
@@ -362,18 +360,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="725" y="300" width="526" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1575871752657" />
-    <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575523801865">
+    <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575875958977">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1575523801865" />
-    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2" timestamp="1575573871989">
+    <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1575875958977" />
+    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2" timestamp="1575874461417">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1575573871989" />
-    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1575573942160">
+    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1575874461417" />
+    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1575874467864">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1575573942160" />
+    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1575874467864" />
     <state x="647" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1575797746672">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -382,10 +380,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1575814799592" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1575874143232">
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1575876383440">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1575874143232" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1575876383440" />
     <state x="717" y="465" width="542" height="174" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1575569281130">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

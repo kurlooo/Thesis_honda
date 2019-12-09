@@ -63,7 +63,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <button type="submit" class="btn btn-outline-primary">
+                            <button type="submit" class="btn-sm btn-outline-primary">
                                 Update
                             </button>
                         </form>

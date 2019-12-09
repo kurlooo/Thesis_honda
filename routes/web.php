@@ -52,3 +52,5 @@ Route::get('/jobctrlsheet', function (){
 Route::get('haha', function(){
     return view('charan');
 });
+
+Route::get('listapp', 'ListAppController@index');

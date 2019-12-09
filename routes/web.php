@@ -49,6 +49,6 @@ Route::get('/jobctrlsheet', function (){
     return view('pages.jobctrl');
 })->middleware('jobctrl','auth');
 
-//Route::get('haha', function(){
-//    return view('charan');
-//});
+Route::get('haha', function(){
+    return view('charan');
+});

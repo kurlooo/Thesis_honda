@@ -3,13 +3,15 @@
     <title>Vehicle Appointment</title>
 
     <style>
-
+        .text {
+            color: whitesmoke;
+        }
     </style>
 
     @section('content')
 
         <div class="container-fluid">
-            <div class="col-md-10 chour">
+            <div class="col-md-11 chour text">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                     Set Appointment
                 </button><br><br>
@@ -25,15 +27,15 @@
                                 </div>
                             @endif
 
-                            <table id="datatable" class="table bg-light table-hover display">
+                            <table id="datatable" class="table bg-light table-hover display responsive">
                                 <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Plate Number</th>
-                                    <th scope="col">Service Type</th>
-                                    <th scope="col">Date and Time</th>
-                                    <th scope="col">Remarks</th>
-                                    <th scope="col">Action</th>
+                                    <th >#</th>
+                                    <th>Plate Number</th>
+                                    <th>Service Type</th>
+                                    <th >Date and Time</th>
+                                    <th >Remarks</th>
+                                    <th >Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -56,15 +58,10 @@
                                 @endforeach
                                 </tbody>
                             </table>
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-            </div>
         </div>
 
 
         {{--MODAL ADD POPUP WINDOW--}}
-
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -95,11 +92,11 @@
                                 <div class="row ml-2">
                                     <div class="col-md-8 mb-4">
                                         <label for="plate_no">Plate Number</label>
-                                        <input id="plate_no" type="text" placeholder="Enter Plate # e.g. ABC-1234" class="form-control @error('plate_no') is-invalid @enderror" name="plate_no" required>
+                                        <input id="plate_no" type="text" placeholder="Enter Plate # e.g. ABC-1234" class="form-control @error('plate_no') is-invalid @enderror" name="plate_no" required >
                                         @error('plate_no')
                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -168,13 +165,19 @@
 
             $(document).ready(function () {
 
-                $('#datatable').DataTable({
+                $('#datatable').dataTable({
                     "responsive": true,
                     "scrollY": "500px",
                     "scrollCollapse": true,
-                    "paging": false
+                    // "paging": false
                 });
+
+                @if (count($errors) > 0)
+                    $('#exampleModalCenter').modal('show');
+                @endif
             });
+
+
         </script>
 
     @endsection

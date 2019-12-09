@@ -18,11 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-{{--    <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">--}}
+
 
     <style>
         body {
-            background-image: linear-gradient(to bottom, white, darkgray);
+            background-color: #7c0000;
+            background-image: linear-gradient(326deg, #7c0000 0%, #3e0000 74%);
             height: 100vh;
             margin: 0;
         }
@@ -43,11 +44,19 @@
             content: counter(tableCount);
             counter-increment: tableCount;
         }
+
+        .card-signin .card-img-left {
+            width: 45%;
+            /* Link to your background image using in the property below! */
+            background: scroll center url({{ asset('/img/8110315536_d45c848d18_o.jpg') }});
+            /*background: scroll left url('http://www.alliphonewallpapers.com/images/wallpapers/pvosnutxo.jpg');*/
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light shadow-lg">
             <div class="container">
                 <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{asset('/img/honda-logo1.png')}}" alt="" width="50px">
@@ -72,7 +81,7 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{route('register')}}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else

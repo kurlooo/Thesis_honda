@@ -14,11 +14,11 @@ require('tempusdominus-bootstrap-4');
 
 require('@fortawesome/fontawesome-free/js/all');
 
-require('datatables.net-bs4')();
+require('datatables.net-bs4');
 
-require('datatables.net-responsive-bs4')();
+require('datatables.net-responsive-bs4');
 
-require('datatables.net-scroller-bs4')();
+require('datatables.net-scroller-bs4');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

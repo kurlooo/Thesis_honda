@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 <style>
-    html,
-    body {
-        height: 100%;
-    }
+    /*html,*/
+    /*body {*/
+    /*    height: 100vh;*/
+    /*}*/
 
 
     .form-signin {
@@ -86,7 +86,7 @@
         user-select: none;
     }
     .position{
-        padding-top: 100px;
+        padding-top: 50px;
         padding-bottom: 50px;
     }
 

@@ -54,3 +54,7 @@ Route::get('haha', function(){
 });
 
 Route::get('listapp', 'ListAppController@index');
+
+Route::get('charan', 'QueuingController@export');
+
+Route::get('checklist','ChecklistController@export');

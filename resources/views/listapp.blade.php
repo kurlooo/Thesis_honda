@@ -52,8 +52,8 @@
 
     </head>
     <body>
-        <div class="container-fluid ">
-            <div class="col-md-9 position chour text">
+        <div class="container-fluid">
+            <div class=" position chour text">
                 <table id="datatable" class="table bg-light table-hover display responsive">
                     <thead class="thead-dark">
                     <tr>

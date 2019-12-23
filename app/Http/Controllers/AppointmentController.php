@@ -81,7 +81,6 @@ class AppointmentController extends Controller
         $appoint->save();
 
         return redirect()->route('appointment.index')->with('success', 'Appointment updated successfully!');
-
     }
 
     /**

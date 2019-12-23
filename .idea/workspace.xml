@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7999b700-5688-4f83-a3ab-137573849a94" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Checklist.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ChecklistController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/QueuingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Queuing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_18_051156_create_queuing_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_18_055025_create_checklisting_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hahah.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_14_110113_create_technicians_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_14_111707_create_workbay_log_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/listapp.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listapp.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +244,10 @@
       <workItem from="1576309663770" duration="860000" />
       <workItem from="1576321085322" duration="8331000" />
       <workItem from="1576429486189" duration="2835000" />
-      <workItem from="1576487040102" duration="304000" />
+      <workItem from="1576487040102" duration="991000" />
+      <workItem from="1576645810907" duration="5570000" />
+      <workItem from="1576665613809" duration="16105000" />
+      <workItem from="1576735229702" duration="9917000" />
     </task>
     <task id="LOCAL-00001" summary="Modifying Contents of Update Button in User Mgmt">
       <created>1573916072054</created>
@@ -330,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576431345905</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Deleted tables for RFID (workbay_log &amp; technicians) --evade migrate:refresh">
+      <created>1576487427099</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1576487427099</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,49 +378,54 @@
     <MESSAGE value="Slight mods on UI login, register page. Validation on set appointment modal" />
     <MESSAGE value="Added view for list of appointments" />
     <MESSAGE value="Added tables for RFID (workbay_log &amp; technicians)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added tables for RFID (workbay_log &amp; technicians)" />
+    <MESSAGE value="Deleted tables for RFID (workbay_log &amp; technicians) --evade migrate:refresh" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted tables for RFID (workbay_log &amp; technicians) --evade migrate:refresh" />
   </component>
   <component name="WindowStateProjectService">
     <state x="977" y="213" width="802" height="679" key="#SQL_Dialects" timestamp="1575309099376">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="977" y="213" width="802" height="679" key="#SQL_Dialects/67.27.1853.1053@67.27.1853.1053" timestamp="1575309099376" />
-    <state x="977" y="213" width="802" height="679" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575309154684">
+    <state x="687" y="160" width="802" height="679" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576739226135">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="977" y="213" width="802" height="679" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1575309154684" />
+    <state x="687" y="160" width="802" height="679" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576739226135" />
     <state x="725" y="300" width="526" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575871752657">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="725" y="300" width="526" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1575871752657" />
-    <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575875958977">
+    <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1576739493999">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1575875958977" />
-    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2" timestamp="1576431344718">
+    <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576739493999" />
+    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2" timestamp="1577113382569">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1576431344718" />
+    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1577113382569" />
     <state x="356" y="127" width="1454" height="853" key="DiffContextDialog" timestamp="1576438662673">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="356" y="127" width="1454" height="853" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576438662673" />
-    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1576431348183">
+    <state x="788" y="477" width="401" height="151" key="NewPhpFileDialog" timestamp="1576671438724">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1576431348183" />
-    <state x="647" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1576487041906">
+    <state x="788" y="477" width="401" height="151" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576671438724" />
+    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1576487430124">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="647" y="379" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576487041906" />
-    <state x="657" y="253" key="run.anything.popup" timestamp="1575814799592">
+    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1576487430124" />
+    <state x="647" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1577113205241">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1575814799592" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1575876383440">
+    <state x="647" y="379" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577113205241" />
+    <state x="657" y="253" key="run.anything.popup" timestamp="1576681533881">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1575876383440" />
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1576681533881" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1576739632600">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1576739632600" />
     <state x="717" y="465" width="542" height="174" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1575569281130">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

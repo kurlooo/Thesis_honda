@@ -31,7 +31,7 @@
 
                             @can('show-jcs')
                                 <div class="pos">
-                                    <a href="{{url('/jobctrlsheet')}}"><button type="button" class="btn btn-outline-primary">Confirm</button></a>
+                                    <a href="{{url('/jobctrl')}}"><button type="button" class="btn btn-outline-primary">Confirm</button></a>
                                 </div>
                             @endcan
 

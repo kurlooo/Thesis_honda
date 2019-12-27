@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7999b700-5688-4f83-a3ab-137573849a94" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/JobCtrlSheet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Testing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_23_171523_create_tests_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_27_183825_create_jobctrl_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_27_222103_create_technicians_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_27_222137_create_workbay_log_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/jobctrl/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/svcmktg/svcmktg.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/svcmktg/svcmktg.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +248,7 @@
       <workItem from="1577113201177" duration="11919000" />
       <workItem from="1577125992569" duration="80000" />
       <workItem from="1577126089421" duration="5802000" />
-      <workItem from="1577442758467" duration="36178000" />
+      <workItem from="1577442758467" duration="36461000" />
     </task>
     <task id="LOCAL-00001" summary="Modifying Contents of Update Button in User Mgmt">
       <created>1573916072054</created>
@@ -352,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577113383548</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added JobCtrlSheet and Workbay 1 &amp; 2 Ctrller with routes for ESP, added again tech and wbay_log">
+      <created>1577485484547</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1577485484547</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +395,8 @@
     <MESSAGE value="Added tables for RFID (workbay_log &amp; technicians)" />
     <MESSAGE value="Deleted tables for RFID (workbay_log &amp; technicians) --evade migrate:refresh" />
     <MESSAGE value="Added Queuing and Checklist ctrller--database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Queuing and Checklist ctrller--database" />
+    <MESSAGE value="Added JobCtrlSheet and Workbay 1 &amp; 2 Ctrller with routes for ESP, added again tech and wbay_log" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JobCtrlSheet and Workbay 1 &amp; 2 Ctrller with routes for ESP, added again tech and wbay_log" />
   </component>
   <component name="WindowStateProjectService">
     <state x="977" y="213" width="802" height="679" key="#SQL_Dialects" timestamp="1575309099376">
@@ -408,10 +419,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577484025575" />
-    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2" timestamp="1577485483043">
+    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2" timestamp="1577485655082">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1577485483043" />
+    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1577485655082" />
     <state x="356" y="127" width="1454" height="853" key="DiffContextDialog" timestamp="1576438662673">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -420,10 +431,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="788" y="477" width="401" height="151" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576671438724" />
-    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1577113385535">
+    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1577485669368">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1577113385535" />
+    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1577485669368" />
     <state x="647" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1577442774439">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

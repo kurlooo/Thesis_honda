@@ -5,13 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7999b700-5688-4f83-a3ab-137573849a94" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/JobCtrlSheet.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Testing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_23_171523_create_tests_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_27_183825_create_jobctrl_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_27_222103_create_technicians_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_27_222137_create_workbay_log_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/jobctrl/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -249,6 +242,7 @@
       <workItem from="1577125992569" duration="80000" />
       <workItem from="1577126089421" duration="5802000" />
       <workItem from="1577442758467" duration="36461000" />
+      <workItem from="1578033766677" duration="1449000" />
     </task>
     <task id="LOCAL-00001" summary="Modifying Contents of Update Button in User Mgmt">
       <created>1573916072054</created>
@@ -419,10 +413,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577484025575" />
-    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2" timestamp="1577485655082">
+    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2" timestamp="1578077936221">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1577485655082" />
+    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1578077936221" />
     <state x="356" y="127" width="1454" height="853" key="DiffContextDialog" timestamp="1576438662673">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -431,14 +425,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="788" y="477" width="401" height="151" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576671438724" />
-    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1577485669368">
+    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1577485683804">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1577485669368" />
-    <state x="647" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1577442774439">
+    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1577485683804" />
+    <state x="647" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1578077777263">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="647" y="379" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577442774439" />
+    <state x="647" y="379" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578077777263" />
     <state x="657" y="253" key="run.anything.popup" timestamp="1576681533881">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

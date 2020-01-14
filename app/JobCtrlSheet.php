@@ -13,5 +13,9 @@ class JobCtrlSheet extends Model
     ];
 
     protected $table = 'jobctrl';
-
+//
+//    protected $casts = [
+//
+//        'time_in1' => 'date:hh:mm'
+//    ];
 }

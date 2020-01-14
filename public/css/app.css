@@ -1,5 +1,4 @@
-@charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -17803,14 +17802,6 @@ div.DTS div.dataTables_scrollBody table {
   margin-bottom: 2rem;
   font-weight: 300;
   font-size: 1.5rem;
-}
-
-.card-signin .card-img-left {
-  width: 45%;
-  /* Link to your background image using in the property below! */
-  background: scroll center url("/public/img/8110315536_d45c848d18_o.jpg");
-  /*background: scroll left url('http://www.alliphonewallpapers.com/images/wallpapers/pvosnutxo.jpg');*/
-  background-size: cover;
 }
 
 .card-signin .card-body {

@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <form action="{{ route('admin.users.update', $user) }}" method="POST">
                             <div class="form-group row">
-                                <label for="name" class="col-md-2 col-form-label text-md-right">Full Name</label>
+                                <label for="name" class="col-md-3 col-form-label text-md-right">Full Name</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autofocus>
@@ -24,7 +24,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="username" class="col-md-2 col-form-label text-md-right">Username</label>
+                                <label for="username" class="col-md-3 col-form-label text-md-right">Username</label>
 
                                 <div class="col-md-6">
                                     <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ $user->username }}" required autocomplete="username">
@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-2 col-form-label text-md-right">Email</label>
+                                <label for="email" class="col-md-3 col-form-label text-md-right">Email</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email" autofocus>

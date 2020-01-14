@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Queuing;
 use App\Testing;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -69,5 +70,15 @@ class TestController extends Controller
 
         Testing::where('id',$lastid)
             ->update(['time_out2'=> Carbon::now('Asia/Manila')->toTimeString()]);
+    }
+
+
+    public function dropdown()
+    {
+        $last = Queuing::first();
+
+        $lastplate = $last->plate_no;
+
+        return $lastplate;
     }
 }

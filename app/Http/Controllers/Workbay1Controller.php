@@ -11,24 +11,46 @@ class Workbay1Controller extends Controller
 
     public function whois()
     {
-        $last = JobCtrlSheet::where('workbay_id', '1')->latest('plate_no')->first();
+        $new = JobCtrlSheet::where('workbay_id', '1')->latest('plate_no')->first();
 
-        return $last;
+        return $new;
+
+    }
+
+    public function whois2()
+    {
+        $old = JobCtrlSheet::where('workbay_id', '1')->first('id');
+
+        return $old;
 
     }
 
 
-    public function tin()
+    public function tin1()
     {
         $who = $this->whois();
 
         $lastplate = $who->plate_no;
 
         JobCtrlSheet::where('plate_no', $lastplate)
-            ->update(['time_in' => Carbon::now('Asia/Manila')->toTimeString()]);
+            ->update(['time_in1' => Carbon::now()->subSeconds(10)->toTimeString()]);
+
+        return $lastplate;
+
+    }
+
+    public function tin2()
+    {
+        $who = $this->whois();
+
+        $lastplate = $who->plate_no;
+
+        JobCtrlSheet::where('plate_no', $lastplate)
+            ->update(['time_in2' => Carbon::now()->subSeconds(10)->toTimeString()]);
 
         return $lastplate;
     }
+
 
 
     public function tout1()
@@ -37,7 +59,7 @@ class Workbay1Controller extends Controller
         $lastid = $who->id;
 
         JobCtrlSheet::where('id',$lastid)
-            ->update(['time_out1'=> Carbon::now('Asia/Manila')->toTimeString()]);
+            ->update(['time_out1'=> Carbon::now()->subSeconds(10)->toTimeString()]);
 
     }
 
@@ -47,6 +69,6 @@ class Workbay1Controller extends Controller
         $lastid = $who->id;
 
         JobCtrlSheet::where('id',$lastid)
-            ->update(['time_out2'=> Carbon::now('Asia/Manila')->toTimeString()]);
+            ->update(['time_out2'=> Carbon::now()->subSeconds(10)->toTimeString()]);
     }
 }

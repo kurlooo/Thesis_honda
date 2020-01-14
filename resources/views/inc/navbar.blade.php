@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-xl navbar-light bg-light shadow-lg">
     <div class="container">
         <a class="navbar-brand" href="{{url('/')}}">
             <img src="{{asset('/img/honda-logo1.png')}}" alt="" width="50px">
@@ -23,7 +23,7 @@
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{route('register')}}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else
@@ -42,6 +42,9 @@
                             @can('manage-users')
                                 <a class="dropdown-item" href="{{route('admin.users.index')}}">
                                     User Management
+                                </a>
+                                <a class="dropdown-item" href="{{route('dashb')}}">
+                                    Dashboard
                                 </a>
                             @endcan
 

@@ -21,8 +21,9 @@ class CreateJobctrlTable extends Migration
             $table->string('plate_no',8)->unique();
             $table->string('model')->unique();
             $table->string('pro_time')->nullable();
-            $table->time('time_in')->nullable();
+            $table->time('time_in1')->nullable();
             $table->time('time_out1')->nullable();
+            $table->time('time_in2')->nullable();
             $table->time('time_out2')->nullable();
             $table->string('total_time')->nullable();
             $table->string('frt')->nullable();

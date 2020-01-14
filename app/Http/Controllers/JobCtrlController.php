@@ -20,7 +20,7 @@ class JobCtrlController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'RO_no' => 'required',
+            'RO_no' => ['required','unique:jobctrl'],
             'workbay_id' => 'required',
             'tech_name' =>'required',
             'cust_name' => 'required',

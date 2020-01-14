@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Checklist;
+use App\Http\Resources\ChecklistResource;
+use App\JobCtrlSheet;
+use App\Queuing;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
 
 class ChecklistController extends Controller
 {
@@ -15,8 +22,6 @@ class ChecklistController extends Controller
 
 // try url/route?plate_no=wyyww& serviceType=something
         $check = new Checklist([
-            'workbay_1' => $request->workbay_1,
-            'workbay_2' => $request->workbay_2,
             'plate_no' => $request->plate_no,
             'cust_name'=> $request->cust_name,
             'engine_no'=> $request->engine_no,
@@ -34,9 +39,42 @@ class ChecklistController extends Controller
             'rleft_con' => $request->rleft_con,
             'rright_tr' => $request->rright_tr,
             'rright_con' => $request->rright_con,
-            'clister_com' => $request->clister_con,
+            'clister_com' => $request->clister_com,
         ]);
 
         $check->save();
+    }
+
+    public function whois()
+    {
+        $last = Checklist::latest()->first();
+
+        return $last;
+
+    }
+
+    public function comment(Request $request)
+    {
+        $who = $this->whois();
+
+        $lastplate = $who->plate_no;
+
+        Checklist::where('plate_no', $lastplate)
+            ->update(['clister_com' => $request->clister_com]);
+
+        return $lastplate;
+    }
+
+    public function dropdown(Checklist $checklist)
+    {
+//        $plate = Queuing::all();
+
+//        $last = $plate->pluck('plate_no');
+
+        ChecklistResource::withoutWrapping();
+
+        return new ChecklistResource($checklist);
+
+//         dd($last);
     }
 }

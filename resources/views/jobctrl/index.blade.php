@@ -37,8 +37,9 @@
                     <th>Plate No</th>
                     <th>Model/Yr</th>
                     <th>Promise Time</th>
-                    <th>Time In</th>
+                    <th>Time In 1</th>
                     <th>Time Out 1</th>
+                    <th>Time In 2</th>
                     <th>Time Out 2</th>
                     <th>Total Time</th>
                     <th>F.R.T.</th>
@@ -58,8 +59,9 @@
                         <td>{{ $job->plate_no }}</td>
                         <td>{{ $job->model }}</td>
                         <td>{{ $job->pro_time }}</td>
-                        <td>{{ $job->time_in }}</td>
+                        <td>{{ $job->time_in1 }}</td>
                         <td>{{ $job->time_out1 }}</td>
+                        <td>{{ $job->time_in2 }}</td>
                         <td>{{ $job->time_out2 }}</td>
                         <td>{{ $job->total_time }}</td>
                         <td>{{ $job->frt }}</td>
@@ -82,7 +84,7 @@
 
 
         {{--MODAL ADD POPUP WINDOW--}}
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content ">
                     <div class="modal-header bg-danger">
@@ -100,7 +102,7 @@
                                     <input id="RO_no" type="text" placeholder="Enter Repair Order #" class="form-control @error('RO_no') is-invalid @enderror" name="RO_no" required >
                                     @error('RO_no')
                                     <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>{{ 'The Repair Order # has already been taken.' }}</strong>
                                         </span>
                                     @enderror
                                 </div>
@@ -180,6 +182,17 @@
                                 </div>
                             </div>
 
+                            <div class="row ml-2">
+                                <div class="col-md-8">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary m-1">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
 {{--                            <div class="row ml-2">--}}
 {{--                                <div class="col-md-8 mb-4">--}}
 {{--                                    <label for="datetimepicker1">Date and Time</label>--}}
@@ -206,21 +219,11 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 
-                            <div class="row ml-2">
-                                <div class="col-md-8">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary m-1">Submit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+
 
         {{-- END MODAL ADD POPUP WINDOW--}}
 
-        <script>
+    <script>
             $(function() {
                 $.fn.datetimepicker.Constructor.Default = $.extend({},
                     $.fn.datetimepicker.Constructor.Default, {
@@ -256,8 +259,7 @@
                 @endif
             });
 
-
-        </script>
+    </script>
 
 @endsection
 

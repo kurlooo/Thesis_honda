@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 
+use App\JobCtrlSheet;
 use App\Queuing;
 use App\Testing;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class TestController extends Controller
@@ -72,13 +74,22 @@ class TestController extends Controller
             ->update(['time_out2'=> Carbon::now('Asia/Manila')->toTimeString()]);
     }
 
-
-    public function dropdown()
+    public function test()
     {
-        $last = Queuing::first();
+        $count = DB::table('jobctrl')
+            ->select(DB::raw('count(*) as tcount'))
+            ->whereNotNull('rlsd')
+//            ->whereDate('created_at', '=', Carbon::today())
+            ->get();
 
-        $lastplate = $last->plate_no;
-
-        return $lastplate;
+        return $count;
     }
+//
+//        foreach ($count as $row){
+//            $count['label'][] = $row->workbay_id;
+//            $count['data'][] = (int) $row->tcount;
+//        }
+//
+//        $count['workbay_data'] = json_encode($count);
+//        return view('dashboard',$count);
 }

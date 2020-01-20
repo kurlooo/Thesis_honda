@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\JobCtrlSheet;
 use App\Testing;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class JobCtrlController extends Controller
@@ -44,8 +45,18 @@ class JobCtrlController extends Controller
         return redirect()->route('jobctrl.index')->with('success', 'Job Added Successfully!');
     }
 
-    public function destroy($id)
+    public function checkout($id)
     {
-        //
+        $check = JobCtrlSheet::find($id);
+
+        $who = $check->id;
+        JobCtrlSheet::where('id', $who)
+            ->update(['rlsd' => Carbon::now()->toTimeString()]);
+
+        $plate = $check->plate_no;
+        $msg = "$plate Checkout Success!";
+
+        return redirect()->route('jobctrl.index')->with('success',$msg);
+
     }
 }

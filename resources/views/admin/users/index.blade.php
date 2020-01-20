@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-9">
-                <div class="card">
-                    <div class="card-header">Users</div>
+        <div class="row justify-content-center text">
+            <div class="col-sm-11">
+{{--                <div class="card">--}}
+{{--                        <div class="card-header">Users</div>--}}
 
-                        <table class="table">
+                        <table id="datatable" class="table bg-light table-hover display responsive">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -30,23 +30,33 @@
                                         @can('edit-users')
                                         <a href="{{route('admin.users.edit', $user->id)}}"><button type="button" class="btn-sm btn-outline-primary float-left">Edit</button></a>
                                         @endcan
+
                                         @can('delete-users')
-                                        <form action="{{ route('admin.users.destroy', $user) }}" method="POST" class="float-left">
-                                            @csrf
+                                            <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
+                                                @csrf
                                                 {{ method_field('DELETE') }}
-                                                <button type="submit" class="btn-sm btn-outline-danger ml-2">Delete</button>
-                                        </form>
-                                            @endcan
+                                                <button type="submit" class="btn-sm btn-outline-danger ml-2 float-left">Delete</button>
+                                            </form>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-
-
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#datatable').dataTable({
+                "responsive": true,
+                "scrollY": "500px",
+                "scrollCollapse": true,
+                // "paging": false
+            });
+        });
+    </script>
 @endsection

@@ -19,6 +19,10 @@ require('datatables.net-bs4');
 require('datatables.net-responsive-bs4');
 
 require('datatables.net-scroller-bs4');
+
+require('/var/www/webapp1/public/js/dash');
+
+require('/var/www/webapp1/public/argon/js/argon');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="container-fluid">
-        <div class="col-md-11 chour text">
+        <div class="col-md-12 chour text">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                 Workbay Assignment
             </button><br><br>
@@ -69,10 +69,8 @@
                         <td>{{ $job->qc }}</td>
                         <td>{{ $job->rlsd }}</td>
                         <td>
-                            <form method="post" action="{{ route('jobctrl.destroy', $job->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger float-left">Delete</button>
+                            <form method="get" action="{{ route('jobctrl.checkout', $job->id) }}">
+                                <button type="submit" class="btn btn-success float-left">Checkout</button>
                             </form>
                         </td>
                     </tr>
@@ -193,33 +191,6 @@
                 </div>
             </div>
     </div>
-{{--                            <div class="row ml-2">--}}
-{{--                                <div class="col-md-8 mb-4">--}}
-{{--                                    <label for="datetimepicker1">Date and Time</label>--}}
-{{--                                    <div class="form-group">--}}
-{{--                                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">--}}
-{{--                                            <input id="datetime" name="datetime" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" required/>--}}
-{{--                                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">--}}
-{{--                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>--}}
-{{--                                            </div>--}}
-{{--                                            @error('datetime')--}}
-{{--                                            <span class="invalid-feedback" role="alert">--}}
-{{--                                                                <strong>{{ $message }}</strong>--}}
-{{--                                                            </span>--}}
-{{--                                            @enderror--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-{{--                            <div class="row ml-2">--}}
-{{--                                <div class="col-md-8 mb-4">--}}
-{{--                                    <label for="remarks">Remarks</label>--}}
-{{--                                    <input id="remarks" type="text" class="form-control" name="remarks">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-
 
         {{-- END MODAL ADD POPUP WINDOW--}}
 

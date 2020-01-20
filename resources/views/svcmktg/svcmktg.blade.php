@@ -2,11 +2,7 @@
 
     <title>Vehicle Appointment</title>
 
-    <style>
-        .text {
-            color: whitesmoke;
-        }
-    </style>
+
 
     @section('content')
 

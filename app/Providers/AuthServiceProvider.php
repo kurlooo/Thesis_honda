@@ -44,5 +44,10 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('show-jcs', function ($user){
             return $user->hasRole('Job Controller');
         });
+
+        Gate::define('show-dash', function ($user){
+            return $user->hasAnyRoles(['Job Controller','Admin']);
+        });
+
     }
 }

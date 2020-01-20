@@ -46,7 +46,8 @@ Route::middleware('svcmktg','auth')->group(function(){
 //Route::get('/appointment','AppointmentController@destroy')->name('panas')->middleware('svcmktg','auth');
 
 Route::middleware('jobctrl','auth')->group(function(){
-    Route::resource('/jobctrl','JobCtrlController',['except' => ['show','update','create','edit']]);
+    Route::resource('/jobctrl','JobCtrlController',['except' => ['show','create','edit','destroy','update']]);
+    Route::get('/jobctrl/{jobctrl}','JobCtrlController@checkout')->name('jobctrl.checkout');
 });
 
 Route::get('haha', function(){
@@ -55,7 +56,7 @@ Route::get('haha', function(){
 
 Route::get('listapp', 'ListAppController@index'); //call to get webview of list of appointments
 
-Route::get('queue', 'QueuingController@export'); //NEED TO UPDATE to 'queue'
+Route::get('queue', 'QueuingController@export');
 
 Route::get('checklist','ChecklistController@export');
 
@@ -93,54 +94,15 @@ Route::get('tout2','TestController@tout2');
 
 Route::get('tin','TestController@tin');
 
-//Route::get('whoru','TestController@dropdown');
-
-
-
+Route::get('test','TestController@test');
 //DASHBOARD
 
-Route::get('/overview', 'HomeController@index2')->name('dashb')->middleware('can:manage-users','auth','admin');
-//
-//Route::group(['middleware' => 'auth'], function () {
-//	Route::get('table-list', function () {
-//		return view('pages.table_list');
-//	})->name('table');
-//
-//	Route::get('typography', function () {
-//		return view('pages.typography');
-//	})->name('typography');
-//
-//	Route::get('icons', function () {
-//		return view('pages.icons');
-//	})->name('icons');
-//
-//	Route::get('map', function () {
-//		return view('pages.map');
-//	})->name('map');
-//
-//	Route::get('notifications', function () {
-//		return view('pages.notifications');
-//	})->name('notifications');
-//
-//	Route::get('rtl-support', function () {
-//		return view('pages.language');
-//	})->name('language');
-//
-//	Route::get('upgrade', function () {
-//		return view('pages.upgrade');
-//	})->name('upgrade');
-//});
-//
-//Route::group(['middleware' => 'auth'], function () {
-//	Route::resource('user', 'UserController', ['except' => ['show']]);
-//	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-//	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-//	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-//});
+Route::get('/overview', 'HomeController@index2')->name('dashb')->middleware('can:show-dash','auth');
 
-//Auth::routes();
+Route::get('unres','DashboardController@ttlveh'); // units received
+Route::get('uncom','DashboardController@ttlcom'); // units completed
+Route::get('unrel','DashboardController@ttlrel'); // units released
 
-//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);

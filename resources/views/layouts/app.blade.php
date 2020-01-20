@@ -14,9 +14,6 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -61,13 +58,23 @@
         a:focus {
             outline: none;
         }
+
+         .text {
+             color: whitesmoke;
+         }
+
+        @font-face {
+            font-family: 'Nunito';
+            src: url("/public/fonts/Nunito-Regular.ttf") format("truetype");
+        }
+
     </style>
 </head>
 <body>
 <div id="app">
     <nav class="navbar navbar-expand-xl navbar-light bg-light shadow-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/home">
                 <img src="{{asset('/img/honda-logo1.png')}}" alt="" width="50px">
                 <span class="ml-1">Honda</span>
             </a>
@@ -110,11 +117,12 @@
                                     <a class="dropdown-item" href="{{route('admin.users.index')}}">
                                         User Management
                                     </a>
+                                @endcan
+                                @can('show-dash')
                                     <a class="dropdown-item" href="{{route('dashb')}}">
                                         Dashboard
                                     </a>
                                 @endcan
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>

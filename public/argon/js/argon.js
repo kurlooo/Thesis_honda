@@ -563,7 +563,7 @@ var Charts = (function() {
 						padding: 0
 					},
 					legend: {
-						display: false,
+						display: true,
 						position: 'bottom',
 						labels: {
 							usePointStyle: true,
@@ -755,7 +755,7 @@ var Charts = (function() {
 			ticks: {
 				padding: 20
 			},
-			maxBarThickness: 10
+			// maxBarThickness: 10
 		});
 
 		return options;
@@ -955,7 +955,7 @@ var OrdersChart = (function() {
 							}
 
 							content += '<span class="popover-body-value">' + yLabel + '</span>';
-							
+
 							return content;
 						}
 					}

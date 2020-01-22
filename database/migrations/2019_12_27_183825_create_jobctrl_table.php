@@ -30,6 +30,8 @@ class CreateJobctrlTable extends Migration
             $table->string('tech_name');
             $table->time('qc')->nullable();
             $table->time('rlsd')->nullable();
+            $table->integer('flag')->nullable();
+            $table->integer('flag2')->nullable();
             $table->timestamps();
         });
     }

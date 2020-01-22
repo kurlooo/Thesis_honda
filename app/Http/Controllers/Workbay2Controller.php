@@ -8,58 +8,63 @@ use Carbon\Carbon;
 class Workbay2Controller extends Controller
 {
 
-    public function whois()
-    {
-        $last = JobCtrlSheet::where('workbay_id', '2')->latest('plate_no')->first();
-
-        return $last;
-
-    }
-
-
     public function tin1()
     {
-        $who = $this->whois();
+        $new3 = JobCtrlSheet::where('workbay_id','2')
+            ->whereNull('rlsd')
+            ->first();
 
-        $lastplate = $who->plate_no;
-        $now = Carbon::now('Asia/Manila');
-        JobCtrlSheet::where('plate_no', $lastplate)
-            ->update(['time_in1' => Carbon::now()->subSeconds(10)->toTimeString()]);
+        $flg3 = $new3->flag;
+        $lastplate3 = $new3->plate_no;
 
-//        return $lastplate;
-        return $now;
+        if($flg3==null) {
+//            $lastplate = $new->plate_no;
+
+            JobCtrlSheet::where('plate_no', $lastplate3)
+                ->whereNull('flag')
+                ->update(['time_in1' => Carbon::now()->subSeconds(10)->toTimeString(), 'flag' => '1']);
+
+        }
+        elseif($flg3=='1'){
+//            $lastplate = $new->plate_no;
+
+            JobCtrlSheet::where('plate_no', $lastplate3)
+                ->where('flag', '1')
+                ->update(['time_in2' => Carbon::now()->subSeconds(10)->toTimeString(), 'flag' => null]);
+
+        }
+
+        return $lastplate3;
     }
-
-    public function tin2()
-    {
-        $who = $this->whois();
-
-        $lastplate = $who->plate_no;
-
-        JobCtrlSheet::where('plate_no', $lastplate)
-            ->update(['time_in2' => Carbon::now()->subSeconds(10)->toTimeString()]);
-
-        return $lastplate;
-    }
-
 
     public function tout1()
     {
-        $who = $this->whois();
+        $new4 = JobCtrlSheet::where('workbay_id','2')
+            ->whereNull('rlsd')
+            ->whereNotNull('time_in1')
+            ->first();
 
-        $lastid = $who->id;
+        $flg4 = $new4->flag2;
+        $lastplate4 = $new4->plate_no;
 
-        JobCtrlSheet::where('id',$lastid)
-            ->update(['time_out1'=> Carbon::now()->subSeconds(10)->toTimeString()]);
+        if($flg4==null) {
+//            $lastplate = $new->plate_no;
 
-    }
+            JobCtrlSheet::where('plate_no', $lastplate4)
+                ->whereNull('flag2')
+                ->update(['time_out1' => Carbon::now()->subSeconds(10)->toTimeString(), 'flag2' => '1',
+                    'qc'=> Carbon::now()->subSeconds(10)->toTimeString()]);
 
-    public function tout2()
-    {
-        $who = $this->whois();
-        $lastid = $who->id;
+        }
+        elseif($flg4=='1'){
+//            $lastplate = $new->plate_no;
 
-        JobCtrlSheet::where('id',$lastid)
-            ->update(['time_out2'=> Carbon::now('Asia/Manila')->subSeconds(10)->toTimeString()]);
+            JobCtrlSheet::where('plate_no', $lastplate4)
+                ->where('flag2', '1')
+                ->update(['time_out2' => Carbon::now()->subSeconds(10)->toTimeString(), 'flag2' => null]);
+
+        }
+
+        return $lastplate4;
     }
 }

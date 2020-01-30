@@ -48,13 +48,15 @@ Route::middleware('svcmktg','auth')->group(function(){
 Route::middleware('jobctrl','auth')->group(function(){
     Route::resource('/jobctrl','JobCtrlController',['except' => ['show','create','edit','destroy','update']]);
     Route::get('/jobctrl/{jobctrl}','JobCtrlController@checkout')->name('jobctrl.checkout');
+    Route::get('/jobctrl/get/{plate_no}','JobCtrlController@comp');
 });
 
 Route::get('haha', function(){
     return view('charan');
 });
 
-Route::get('listapp', 'ListAppController@index'); //call to get webview of list of appointments
+//DROPDWON FOR QUEUING
+Route::get('listapp', 'ListAppController@plate'); //call to get webview of list of appointments
 
 Route::get('queue', 'QueuingController@export');
 
@@ -62,7 +64,20 @@ Route::get('checklist','ChecklistController@export');
 
 Route::get('comment','ChecklistController@comment');
 
-Route::get('whois','ChecklistController@dropdown');
+//DROPDOWN FOR CHECKLIST
+Route::get('plate_no','ChecklistController@plate');
+
+Route::get('cust_name','ChecklistController@cust_name');
+
+Route::get('engine_no','ChecklistController@engine_no');
+
+Route::get('model','ChecklistController@mdl');
+
+Route::get('color','ChecklistController@color');
+
+
+//JOB CONTROLL DROPDOWN
+Route::get('/test','TestController@test')->name('test');
 
 
 //WORKBAY 1
@@ -94,7 +109,7 @@ Route::get('tout2','TestController@tout2');
 
 Route::get('tin','TestController@tin');
 
-Route::get('test','TestController@test');
+Route::get('/test/{plate_no}','TestController@test')->name('test');
 //DASHBOARD
 
 Route::get('/overview', 'HomeController@index2')->name('dashb')->middleware('can:show-dash','auth');

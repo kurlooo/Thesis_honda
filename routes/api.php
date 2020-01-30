@@ -21,4 +21,4 @@ Route::get('/status', function (){
     return ['status' => 'ok'];
 });
 
-Route::get('whois','ChecklistController@dropdown');
+//Route::get('whois','ChecklistController@dropdown');  http://192.168.0.18/whois

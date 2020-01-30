@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Appointments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ListAppController extends Controller
 {
-    public function index()
+    public function plate()
     {
-        $appoints = Appointments::all();
+        $last = DB::table('appointments')->select('plate_no')->get();
 
-        return view('listapp',compact('appoints'));
+        return response()->json($last);
     }
 }

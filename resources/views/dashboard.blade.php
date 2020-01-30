@@ -19,7 +19,7 @@
                         <div class="row align-items-center">
                             <div class="col">
 {{--                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>--}}
-                                <h2 class="text-white mb-0">Total Units Received</h2>
+                                <h2 class="text-white mb-0">Workshop Efficiency</h2>
 
                                 <h6 class="text-light ls-1 mb-0" style="font-weight: normal; font-size: small">as of <span id="date"></span></h6>
 
@@ -39,31 +39,31 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6">
-                <div class="card shadow">
-                    <div class="card-header bg-transparent">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                {{--                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>--}}
-                                <h2 class="mb-0">Total Units Completed</h2>
+{{--            <div class="col-xl-6">--}}
+{{--                <div class="card shadow">--}}
+{{--                    <div class="card-header bg-transparent">--}}
+{{--                        <div class="row align-items-center">--}}
+{{--                            <div class="col">--}}
+{{--                                --}}{{--                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>--}}
+{{--                                <h2 class="mb-0">Total Units Completed</h2>--}}
 
-                                <h6 class="ls-1 mb-0" style="font-weight: normal; font-size: small">as of <span id="date1"></span></h6>
+{{--                                <h6 class="ls-1 mb-0" style="font-weight: normal; font-size: small">as of <span id="date1"></span></h6>--}}
 
-                                <script>
-                                    var dt = new Date();
-                                    document.getElementById('date1').innerHTML=dt.toDateString();
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <!-- Chart -->
-                        <div class="chart">
-                            <canvas id="chart-com" class="chart-canvas"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--                                <script>--}}
+{{--                                    var dt = new Date();--}}
+{{--                                    document.getElementById('date1').innerHTML=dt.toDateString();--}}
+{{--                                </script>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="card-body">--}}
+{{--                        <!-- Chart -->--}}
+{{--                        <div class="chart">--}}
+{{--                            <canvas id="chart-com" class="chart-canvas"></canvas>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
         <div class="row mt-5">
             <div class="col-xl-8 mb-5 mb-xl-0">

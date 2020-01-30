@@ -13,9 +13,32 @@ class JobCtrlSheet extends Model
     ];
 
     protected $table = 'jobctrl';
+
+
+//    public static function boot()
+//    {
+//        parent::boot();
 //
-//    protected $casts = [
-//
-//        'time_in1' => 'date:hh:mm'
+//        static::updating(function($model) {
+//            $diff = $this->time_in1->diffForHumans($this->time_out2);
+//            $this->total_time = $diff;
+//        });
+//    }
+
+//    public $timestamps=[
+//        'time_in1',
+//        'time_out1',
 //    ];
+//
+//    protected $appends = ['diffForHumans'];
+//
+//    public function getDiffInDaysAttribute()
+//    {
+//        if (!empty($this->time_in1) && !empty($this->time_out1)) {
+//            return $this->time_out1->diffinSeconds($this->time_in1);
+//        }
+//    }
+
+
+
 }

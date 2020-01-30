@@ -14,6 +14,7 @@ class Workbay1Controller extends Controller
     {
         $new = JobCtrlSheet::where('workbay_id','1')
             ->whereNull('rlsd')
+//            ->whereNull('time_in1')
             ->first();
 
         $flg = $new->flag;
@@ -51,11 +52,17 @@ class Workbay1Controller extends Controller
 
         if($flg2==null) {
 //            $lastplate = $new->plate_no;
-
             JobCtrlSheet::where('plate_no', $lastplate1)
                 ->whereNull('flag2')
                 ->update(['time_out1' => Carbon::now()->subSeconds(10)->toTimeString(), 'flag2' => '1',
                     'qc'=> Carbon::now()->subSeconds(10)->toTimeString()]);
+
+            $yes = $this->getDif();
+
+            JobCtrlSheet::where('plate_no', $lastplate1)
+                ->whereNotNull('flag2')
+                ->update(['total_time' =>$yes]);
+
 
         }
         elseif($flg2=='1'){
@@ -65,9 +72,87 @@ class Workbay1Controller extends Controller
                 ->where('flag2', '1')
                 ->update(['time_out2' => Carbon::now()->subSeconds(10)->toTimeString(), 'flag2' => null]);
 
+
+            $hey = $this->toti();
+
+            JobCtrlSheet::where('plate_no', $lastplate1)
+                ->whereNull('flag2')
+                ->update(['total_time' =>$hey]);
+
         }
 
-        return $lastplate1;
+//        return $lastplate1;
+    }
+
+    public function getDif()
+    {
+        $new2 = JobCtrlSheet::where('workbay_id','1')
+            ->whereNull('rlsd')
+            ->whereNotNull('time_in1')
+            ->whereNotNull('time_out1')
+            ->first();
+
+        $start = Carbon::parse($new2->time_in1);
+        $finish = Carbon::parse($new2->time_out1);
+
+
+        $dur = $finish->diffForHumans($start,true);
+
+        return $dur;
+    }
+
+    public function getDif2()
+    {
+        $new2 = JobCtrlSheet::where('workbay_id','1')
+            ->whereNull('rlsd')
+            ->whereNotNull('time_in1')
+            ->whereNotNull('time_out1')
+            ->first();
+
+        $start = Carbon::parse($new2->time_in1);
+        $finish = Carbon::parse($new2->time_out1);
+
+
+        $dur = $finish->diff($start)->format('%H:%i:%s');
+
+        return $dur;
+    }
+
+    public function getDif3()
+    {
+        $new2 = JobCtrlSheet::where('workbay_id','1')
+            ->whereNull('rlsd')
+            ->whereNotNull('time_in1')
+            ->whereNotNull('time_out1')
+            ->whereNotNull('time_in2')
+            ->whereNotNull('time_out2')
+            ->first();
+
+        $start2 = Carbon::parse($new2->time_in2);
+        $finish2 = Carbon::parse($new2->time_out2);
+
+        $dur2 = $finish2->diff($start2)->format('%H:%i:%s');
+//
+
+        return $dur2;
+    }
+
+    public function toti()
+    {
+        $yey = $this->getDif2();
+
+        $yey2 = $this->getdif3();
+
+        $yey3 = strtotime($yey2)-strtotime("00:00:00");
+
+        $yey4= date("H:i:s",strtotime($yey)+$yey3);
+
+
+        $total = Carbon::parse($yey4);
+        $zero = Carbon::parse(strtotime("00:00:00"));
+
+
+        return $total->diffForHumans($zero,true);
     }
 
 }

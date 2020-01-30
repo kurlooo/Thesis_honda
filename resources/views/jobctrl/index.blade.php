@@ -91,7 +91,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="post" action="{{ route('jobctrl.store') }}">
+                    <form class="event" method="post" action="{{ route('jobctrl.store') }}">
                         @csrf
                         <div class="modal-body">
                             <div class="row ml-2">
@@ -123,7 +123,7 @@
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
                                     <label for="tech_name">Technician:</label>
-                                    <input id="tech_name" type="text" placeholder="Enter Technician Name" class="form-control @error('tech_name') is-invalid @enderror" name="tech_name" required >
+                                    <input id="tech_name" type="text" placeholder="Enter Technician Name" class="tech form-control @error('tech_name') is-invalid @enderror" name="tech_name" required >
                                     @error('tech_name')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -134,8 +134,21 @@
 
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
+                                        <label for="plate_no">Plate Number</label>
+                                        <input id="plate_no" type="text" placeholder="Enter Plate # e.g. ABC-1234" class="plate_no form-control @error('plate_no') is-invalid @enderror" name="plate_no" required >
+                                        @error('plate_no')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+{{--                                        <span id="country_list"></span>--}}
+                                </div>
+                            </div>
+
+                            <div class="row ml-2">
+                                <div class="col-md-8 mb-4">
                                     <label for="cust_name">Customer Name</label>
-                                    <input id="cust_name" type="text" placeholder="Enter Customer Name" class="form-control @error('cust_name') is-invalid @enderror" name="cust_name" required >
+                                    <input id="cust_name" type="text" placeholder="Enter Customer Name" class="form-control @error('cust_name') is-invalid @enderror" name="cust_name" required>
                                     @error('cust_name')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -144,17 +157,6 @@
                                 </div>
                             </div>
 
-                            <div class="row ml-2">
-                                <div class="col-md-8 mb-4">
-                                    <label for="plate_no">Plate Number</label>
-                                    <input id="plate_no" type="text" placeholder="Enter Plate # e.g. ABC-1234" class="form-control @error('plate_no') is-invalid @enderror" name="plate_no" required >
-                                    @error('plate_no')
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
 
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
@@ -171,7 +173,7 @@
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
                                     <label for="pro_time">Promise Time</label>
-                                    <input id="pro_time" type="text" placeholder="Enter Promise Time" class="form-control @error('pro_time') is-invalid @enderror" name="pro_time" required >
+                                    <input id="pro_time" type="text" placeholder="Enter Promise Time" class="form-control" name="pro_time">
                                     @error('pro_time')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -226,8 +228,78 @@
                 });
 
                 @if (count($errors) > 0)
-                $('#exampleModalCenter').modal('show');
-                @endif
+                    $('#exampleModalCenter').modal('show');
+                    @endif
+
+
+                //DROPDOWN WITH AUTOFILLLL
+                $("#plate_no").autocomplete({
+                    source: function(request,cb){
+                        $.ajax({
+                            url: "/jobctrl/get/"+request.term,
+                            method: 'GET',
+                            dataType: 'json',
+                            success: function (res) {
+                                var result;
+                                result = [
+                                    {
+                                        label: 'No results found for '+request.term,
+                                        value: ''
+                                    }
+                                ];
+
+                                console.log(res);
+
+                                if(res.length) {
+                                    result = $.map(res, function (obj) {
+                                        return {
+                                            label: obj.plate_no,
+                                            value: obj.plate_no,
+                                            data: obj
+                                        };
+
+                                    });
+                                }
+
+                                cb(result);
+                            }
+                        });
+                    },
+                    select:function (e,selectedData) {
+                        console.log(selectedData);
+
+                        if(selectedData && selectedData.item && selectedData.item.data){
+                            var data = selectedData.item.data;
+
+                            $("#cust_name").val(data.cust_name);
+                            $("#model").val(data.model);
+                        }
+                    }
+                });
+
+                $( "#tech_name" ).autocomplete({
+                    source: function(request, response) {
+                        $.ajax({
+                            url: "{{url('/test')}}",
+                            data: {
+                                term : request.term
+                            },
+                            dataType: "json",
+                            success: function(data){
+                                var resp = $.map(data,function(obj){
+                                    //console.log(obj.city_name);
+                                    return obj.name;
+                                });
+
+                                response(resp);
+                            }
+                        });
+                    },
+                    minLength: 1
+                });
+
+                $(".plate_no").autocomplete( "option","appendTo", ".event");
+                $(".tech").autocomplete( "option","appendTo", ".event");
             });
 
     </script>

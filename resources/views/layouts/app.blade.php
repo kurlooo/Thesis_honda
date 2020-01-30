@@ -16,8 +16,6 @@
     <!-- Fonts -->
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
     <style>
         body {
             background-color: #7c0000;

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 
+use App\Checklist;
 use App\JobCtrlSheet;
 use App\Testing;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class JobCtrlController extends Controller
 {
@@ -57,6 +59,33 @@ class JobCtrlController extends Controller
         $msg = "$plate Checkout Success!";
 
         return redirect()->route('jobctrl.index')->with('success',$msg);
+
+    }
+
+    public function comp($plate_no)
+    {
+        if (empty($plate_no)) {
+            return [];
+        }
+
+        $job = DB::table('checklisting')
+//            ->join('queuing','checklist.plate_no', '=','queuing.plate_no')
+            ->select('plate_no','cust_name','model')
+            ->where('plate_no','LIKE',"$plate_no%")
+            ->get();
+
+        return response()->json($job);
+
+    }
+
+    public function comptek(Request $request)
+    {
+        $search = $request->get('term');
+
+        $result = DB::table('technicians')
+            ->where('name', 'LIKE', '%'. $search. '%')->get();
+
+        return response()->json($result);
 
     }
 }

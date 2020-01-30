@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Appointments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class AppointmentController extends Controller
@@ -96,6 +97,13 @@ class AppointmentController extends Controller
 
 
         return redirect()->route('appointment.index')->with('success', 'Appointment deleted successfully!');
+    }
+
+    public function plate()
+    {
+        $last = DB::table('appointments')->select('plate_no')->get();
+
+        return response()->json($last);
     }
 
 

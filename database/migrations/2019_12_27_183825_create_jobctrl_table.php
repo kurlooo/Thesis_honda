@@ -18,7 +18,7 @@ class CreateJobctrlTable extends Migration
             $table->integer('RO_no')->unique();
             $table->string('workbay_id');
             $table->string('cust_name');
-            $table->string('plate_no',8)->unique();
+            $table->string('plate_no',8);
             $table->string('model')->unique();
             $table->string('pro_time')->nullable();
             $table->time('time_in1')->nullable();

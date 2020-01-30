@@ -65,16 +65,38 @@ class ChecklistController extends Controller
         return $lastplate;
     }
 
-    public function dropdown(Checklist $checklist)
+    public function plate()
     {
-//        $plate = Queuing::all();
+        $last = DB::table('queuing')->select('plate_no')->get();
 
-//        $last = $plate->pluck('plate_no');
+        return response()->json($last);
+    }
 
-        ChecklistResource::withoutWrapping();
+    public function cust_name()
+    {
+        $last = DB::table('queuing')->select('cust_name')->get();
 
-        return new ChecklistResource($checklist);
+        return response()->json($last);
+    }
 
-//         dd($last);
+    public function engine_no()
+    {
+        $last = DB::table('queuing')->select('engine_no')->get();
+
+        return response()->json($last);
+    }
+
+    public function mdl()
+    {
+        $last = DB::table('queuing')->select('model')->get();
+
+        return response()->json($last);
+    }
+
+    public function color()
+    {
+        $last = DB::table('queuing')->select('color')->get();
+
+        return response()->json($last);
     }
 }

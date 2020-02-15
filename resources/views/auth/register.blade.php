@@ -3,6 +3,7 @@
 <title>Register</title>
 
 
+
 @section('content')
         <div class="container">
             <div class="row">
@@ -23,7 +24,7 @@
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                     @enderror
-                                    <label for="name">{{ __('Full Name') }}</label>
+                                    <label class="required" for="name">{{ __('Full Name ') }}</label>
 
                                 </div>
 
@@ -34,7 +35,7 @@
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                     @enderror
-                                    <label for="username">{{ __('Username') }}</label>
+                                    <label class="required" for="username">{{ __('Username ') }}</label>
                                 </div>
 
 
@@ -45,7 +46,7 @@
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                     @enderror
-                                    <label for="email">{{ __('Email Address') }}</label>
+                                    <label class="required" for="email">{{ __('Email Address ') }}</label>
                                 </div>
 
                                 <hr>
@@ -57,12 +58,12 @@
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                     @enderror
-                                    <label for="password">{{ __('Password') }}</label>
+                                    <label class="required" for="password">{{ __('Password ') }}</label>
                                 </div>
 
                                 <div class="form-label-group">
                                     <input id="password-confirm" type="password" placeholder="Enter again your password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                    <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                                    <label class="required" for="password-confirm">{{ __('Confirm Password ') }}</label>
                                 </div>
                                 <br>
 

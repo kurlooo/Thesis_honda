@@ -17,18 +17,22 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->hasRole('Admin')){
+        if(Auth::user()->hasRole('Admin')){
             return $next($request);
         }
-        elseif (Auth::check() && Auth::user()->hasRole('Service Marketing')) {
-            return redirect('/appointment');
+        else {
+            return response(json_encode(['error' => 'Unauthorised']), 401)
+                ->header('Content-Type', 'text/json');
         }
-        elseif (Auth::check() && Auth::user()->hasRole('Job Controller')) {
-            return redirect('/jobctrlsheet');
-        }
-        else{
-            return view('pages.error');
-        }
+//        elseif (Auth::check() && Auth::user()->hasRole('Service Marketing')) {
+//            return redirect('/appointment');
+//        }
+//        elseif (Auth::check() && Auth::user()->hasRole('Job Controller')) {
+//            return redirect('/jobctrlsheet');
+//        }
+//        else{
+//            return view('pages.error');
+//        }
 
     }
 }

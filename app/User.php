@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasApiTokens    ;
 
     /**
      * The attributes that are mass assignable.
@@ -58,6 +59,11 @@ class User extends Authenticatable
         }
 
         return false;
+    }
+
+    public function findForPassport($username)
+    {
+        return $this->where('username', $username)->first();
     }
 
 }

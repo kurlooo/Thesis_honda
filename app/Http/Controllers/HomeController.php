@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\JobCtrlSheet;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 class HomeController extends Controller
 {
@@ -29,18 +31,22 @@ class HomeController extends Controller
 
     public function index2()
     {
-        $count = JobCtrlSheet::select(DB::raw("count(workbay_id) as tcount, workbay_id"))
-            ->groupBy('workbay_id')
-            ->get()->toArray();
+        return view('dashboard');
+    }
 
-        $count = [];
+    public function bckup()
+    {
 
-        foreach ($count as $row){
-            $count['label'][] = $row->workbay_id;
-            $count['data'][] = $row->tcount;
+        $process = new Process(['/bin/bash','/home/bendelorm/backup_honda/backup2.sh']);
+        $process->run();
+
+// executes after the command finishes
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
         }
 
-        $count['workbay_data'] = json_encode($count);
-        return view('dashboard',$count);
+//        echo $process->getOutput();
+        return redirect()->route('homee')->with('status','Database Backup Successful!');
+
     }
 }

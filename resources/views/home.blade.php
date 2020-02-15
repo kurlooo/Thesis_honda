@@ -12,15 +12,16 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">Welcome</div>
 
                     <div class="card-body align-content-center">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+
                             You are logged in as {{ auth()->user()->roles()->pluck('name') }} !
 
                             @can('show-appoint')
@@ -36,12 +37,14 @@
                             @endcan
 
                             @can('manage-users')
-                                <div class="pos">
-                                    <a href="{{url('/overview')}}"><button type="button" class="btn btn-outline-primary">Confirm</button></a>
-                                </div>
+{{--                                <div class="ml-3">--}}
+                                    <a href="{{url('/overview')}}"><button type="button" class="ml-3 btn btn-outline-primary">Confirm</button></a>
+{{--                                </div>--}}
+                                <br><br>
+
+                            Manual Database Backup
+                                <a href="{{url('/backup')}}"><button type="button" class="btn btn-outline-dark">Proceed</button></a>
                             @endcan
-
-
                     </div>
 
                 </div>

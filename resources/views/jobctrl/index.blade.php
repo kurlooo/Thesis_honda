@@ -96,7 +96,7 @@
                         <div class="modal-body">
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
-                                    <label for="RO_no">Repair Order No</label>
+                                    <label class="required" for="RO_no">Repair Order No. </label>
                                     <input id="RO_no" type="text" placeholder="Enter Repair Order #" class="form-control @error('RO_no') is-invalid @enderror" name="RO_no" required >
                                     @error('RO_no')
                                     <span class="invalid-feedback" role="alert">
@@ -108,7 +108,7 @@
 
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
-                                    <label>Workbay:</label>
+                                    <label class="required">Workbay: </label>
                                     <div class="custom-control custom-radio">
                                         <input id="wb1" name="workbay_id" type="radio" class="custom-control-input" value="1" checked required>
                                         <label class="custom-control-label" for="wb1">Workbay 1</label>
@@ -122,7 +122,7 @@
 
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
-                                    <label for="tech_name">Technician:</label>
+                                    <label class="required" for="tech_name">Technician: </label>
                                     <input id="tech_name" type="text" placeholder="Enter Technician Name" class="tech form-control @error('tech_name') is-invalid @enderror" name="tech_name" required >
                                     @error('tech_name')
                                     <span class="invalid-feedback" role="alert">
@@ -134,7 +134,7 @@
 
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
-                                        <label for="plate_no">Plate Number</label>
+                                        <label class="required" for="plate_no">Plate Number </label>
                                         <input id="plate_no" type="text" placeholder="Enter Plate # e.g. ABC-1234" class="plate_no form-control @error('plate_no') is-invalid @enderror" name="plate_no" required >
                                         @error('plate_no')
                                         <span class="invalid-feedback" role="alert">
@@ -147,7 +147,7 @@
 
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
-                                    <label for="cust_name">Customer Name</label>
+                                    <label class="required" for="cust_name">Customer Name </label>
                                     <input id="cust_name" type="text" placeholder="Enter Customer Name" class="form-control @error('cust_name') is-invalid @enderror" name="cust_name" required>
                                     @error('cust_name')
                                     <span class="invalid-feedback" role="alert">
@@ -160,7 +160,7 @@
 
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
-                                    <label for="model">Model/Yr</label>
+                                    <label class="required" for="model">Model/Yr </label>
                                     <input id="model" type="text" placeholder="Enter Model/Yr" class="form-control @error('model') is-invalid @enderror" name="model" required >
                                     @error('model')
                                     <span class="invalid-feedback" role="alert">
@@ -172,13 +172,20 @@
 
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
-                                    <label for="pro_time">Promise Time</label>
-                                    <input id="pro_time" type="text" placeholder="Enter Promise Time" class="form-control" name="pro_time">
-                                    @error('pro_time')
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <div class="form-group">
+                                        <label class="required" for="datetimepicker1">Promise Time </label>
+                                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                            <input id="datetime" name="pro_time" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" required/>
+                                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                            @error('pro_time')
+                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -280,16 +287,27 @@
                 $( "#tech_name" ).autocomplete({
                     source: function(request, response) {
                         $.ajax({
-                            url: "{{url('/test')}}",
+                            url: "/tech",
                             data: {
                                 term : request.term
                             },
                             dataType: "json",
                             success: function(data){
-                                var resp = $.map(data,function(obj){
-                                    //console.log(obj.city_name);
-                                    return obj.name;
-                                });
+                                var resp;
+                                resp = [
+                                    {
+                                        label: 'No technician found for '+request.term,
+                                        value: ''
+                                    }
+                                ];
+
+
+                                if(data.length) {
+                                    resp = $.map(data,function(obj){
+                                        //console.log(obj.city_name);
+                                        return obj.name;
+                                    });
+                                }
 
                                 response(resp);
                             }

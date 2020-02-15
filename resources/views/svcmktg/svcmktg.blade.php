@@ -88,7 +88,7 @@
 
                                 <div class="row ml-2">
                                     <div class="col-md-8 mb-4">
-                                        <label for="plate_no">Plate Number</label>
+                                        <label class="required" for="plate_no">Plate Number </label>
                                         <input id="plate_no" type="text" placeholder="Enter Plate # e.g. ABC-1234" class="form-control @error('plate_no') is-invalid @enderror" name="plate_no" required >
                                         @error('plate_no')
                                         <span class="invalid-feedback" role="alert">
@@ -100,7 +100,7 @@
 
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
-                                    <label for="datetimepicker1">Date and Time</label>
+                                    <label class="required" for="datetimepicker1">Date and Time </label>
                                     <div class="form-group">
                                         <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                                             <input id="datetime" name="datetime" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" required/>

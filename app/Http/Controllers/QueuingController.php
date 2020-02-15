@@ -11,8 +11,6 @@ class QueuingController extends Controller
     {
         $data = $request->all();
 
-//        return $data;
-
         $queue = new Queuing([
             'plate_no' => $request->plate_no,
             'queue_id' => $request->queue_id,

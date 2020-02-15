@@ -11,6 +11,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Workbay1Controller;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 
 class TestController extends Controller
@@ -51,40 +53,22 @@ class TestController extends Controller
         return $dur2;
     }
 
-    public function test(Request $request){
-//
-//        if($request->ajax()) {
-//            // select country name from database
-//            $data = Checklist::where('plate_no', 'LIKE', $request->plate_no.'%')
-//                ->get();
-//            // declare an empty array for output
-//            $output = '';
-//            // if searched countries count is larager than zero
-//            if (count($data)>0) {
-//                // concatenate output to the array
-//                $output = '<ul class="list-group" style="display: block; position: relative; z-index: 99999">';
-//                // loop through the result array
-//                foreach ($data as $row){
-//                    // concatenate output to the array
-//                    $output .= '<li class="list-group-item">'.$row->plate_no.'</li>';
-//                }
-//                // end of output
-//                $output .= '</ul>';
-//            }
-//            else {
-//                // if there's no matching results according to the input
-//                $output .= '<li class="list-group-item">'.'No results'.'</li>';
-//            }
-//            // return output result array
-//            return $output;
-//        }
+    public function test(){
 
-        $search = $request->get('term');
 
-        $result = DB::table('technicians')
-            ->where('name', 'LIKE', '%'. $search. '%')->get();
 
-        return response()->json($result);
+        $process = new Process(['/bin/bash','/home/bendelorm/backup_honda/backup2.sh']);
+        $process->run();
+
+// executes after the command finishes
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+
+//        echo $process->getOutput();
+//        dump(json_decode($process->getOutput(), true));
+        return redirect()->route('homee')->with('status','Database Backup Successful!');
+
 
     }
 }

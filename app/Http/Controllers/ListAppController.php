@@ -14,4 +14,11 @@ class ListAppController extends Controller
 
         return response()->json($last);
     }
+
+    public function dates()
+    {
+        $last = DB::table('appointments')->select('datetime')->get();
+
+        return response()->json($last);
+    }
 }

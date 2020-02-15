@@ -66,6 +66,11 @@
             src: url("/public/fonts/Nunito-Regular.ttf") format("truetype");
         }
 
+        .required:after {
+            content:"*";
+            color:red;
+        }
+
     </style>
 </head>
 <body>

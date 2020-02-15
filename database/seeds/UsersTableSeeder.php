@@ -20,6 +20,9 @@ class UsersTableSeeder extends Seeder
         $adminRole = Role::where('name','Admin')->first();
         $svcmktgRole = Role::where('name','Service Marketing')->first();
         $jobctrlRole = Role::where('name','Job Controller')->first();
+        $chekRole = Role::where('name','Checklister')->first();
+        $sekRole = Role::where('name','Company Guard')->first();
+
 
         $admin = User::create([
             'name' => 'Admin',
@@ -42,9 +45,26 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('hello1234'),
         ]);
 
+        $chklistr = User::create([
+            'name' => 'Samuel Quezon',
+            'username' => 'sammy',
+            'email' => 'sam@gmail.com',
+            'password' => Hash::make('sam1234'),
+        ]);
+
+        $sekyu = User::create([
+            'name' => 'Roger That',
+            'username' => 'roger',
+            'email' => 'roger@gmail.com',
+            'password' => Hash::make('roger456'),
+        ]);
+
         $admin->roles()->attach($adminRole);
         $svcmktg->roles()->attach($svcmktgRole);
         $jobctrler->roles()->attach($jobctrlRole);
+        $chklistr->roles()->attach($chekRole);
+        $sekyu->roles()->attach($sekRole);
+
 
     }
 }

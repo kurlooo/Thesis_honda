@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -48,6 +50,19 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('show-dash', function ($user){
             return $user->hasAnyRoles(['Job Controller','Admin']);
         });
+
+//        Gate::define('android', function ($user){
+//            return $user->hasAnyRoles(['Checklister','Company Guard']);
+//        });
+
+        Passport::routes();
+
+        Passport::tokensExpireIn(Carbon::now()->addHours(24));
+
+        Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
+
+        Passport::tokensCan(['android'=>'Can login android']);
+
 
     }
 }

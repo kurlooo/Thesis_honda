@@ -27,6 +27,8 @@ use Illuminate\Routing\Middleware\ValidateSignature;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Laravel\Passport\Http\Middleware\CheckForAnyScope;
+use Laravel\Passport\Http\Middleware\CheckScopes;
 
 class Kernel extends HttpKernel
 {
@@ -88,6 +90,8 @@ class Kernel extends HttpKernel
         'admin' => Admin::class,
         'svcmktg' => SvcMktg::class,
         'jobctrl' => JobCtrl::class,
+        'scopes' => CheckScopes::class,
+        'scope' => CheckForAnyScope::class,
 
     ];
 

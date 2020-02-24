@@ -1,131 +1,244 @@
 $(function() {
-    // $.getJSON("/unres", function(result) {
-    //
-    //     var data = [];
-    //
-    //     for (var i = 0; i < result.length; i++) {
-    //         // labels.push('Workbay '+ result[i].workbay_id);
-    //         data.push(result[i].tcount);
-    //     }
-    //     var ctx = $("#chart-rec");
-    //
-    //     var ctz = $("#chart-com");
-    //
-    //     var ch = {
-    //         labels: ["Workbay 1", "Workbay 2"],
-    //         datasets: [{
-    //             label: "Vehicle Count",
-    //             data: data,
-    //             backgroundColor: "#F4A460",
-    //             borderColor: "#1D7A46",
-    //             borderWidth: [2, 2],
-    //         }],
-    //     };
-    //
-    //     var mychart = new Chart(ctx, {
-    //         type: 'horizontalBar',
-    //         data: ch,
-    //         options: {
-    //             global: {
-    //                 defaultFontColor : 'white',
-    //             },
-    //             legend: {
-    //                 labels: {
-    //                     fontColor: 'white',
-    //                 }
-    //             },
-    //             scales: {
-    //                 yAxes: [{
-    //                     ticks: {
-    //                         beginAtZero: true,
-    //                         fontColor: Charts.colors.white,
-    //                     },
-    //                     maxBarThickness: 50,
-    //                 }],
-    //                 xAxes: [{
-    //                     ticks: {
-    //                         beginAtZero: true,
-    //                         display: true,
-    //                         callback: function(value) {
-    //                             if (!(value % 1)) {
-    //                                 return value
-    //                             }
-    //                         },
-    //                         fontColor: Charts.colors.white,
-    //                         max: 10,
-    //                     },
-    //                     gridLines: {
-    //                         drawBorder: true,
-    //                         color: 'white',
-    //                     }
-    //                 }],
-    //             },
-    //         }
-    //     });
-    // });
+    $.getJSON("/effi", function(result) {
 
-    // $.getJSON("/uncom", function(result) {
-    //
-    //     var data = [];
-    //
-    //     for (var i = 0; i < result.length; i++) {
-    //         // labels.push('Workbay '+ result[i].workbay_id);
-    //         data.push(result[i].tcount);
-    //     }
-    //     var ctx = $("#chart-com");
-    //
-    //     var chart = {
-    //         labels: ["Workbay 1", "Workbay 2"],
-    //         datasets: [{
-    //             label: "Vehicle Count",
-    //             data: data,
-    //             backgroundColor: "#e63d4e",
-    //             borderColor: "#080608",
-    //             borderWidth: [2, 2],
-    //         }],
-    //     };
-    //
-    //     var mychart = new Chart(ctx, {
-    //         type: 'horizontalBar',
-    //         data: chart,
-    //         options: {
-    //             global: {
-    //                 defaultFontColor : 'black',
-    //             },
-    //             legend: {
-    //                 labels: {
-    //                     fontColor: 'black',
-    //                 }
-    //             },
-    //             scales: {
-    //                 yAxes: [{
-    //                     ticks: {
-    //                         beginAtZero: true,
-    //                         fontColor: Charts.colors.black,
-    //                     },
-    //                     maxBarThickness: 50,
-    //                 }],
-    //                 xAxes: [{
-    //                     ticks: {
-    //                         beginAtZero: true,
-    //                         display: true,
-    //                         callback: function(value) {
-    //                             if (!(value % 1)) {
-    //                                 return value
-    //                             }
-    //                         },
-    //                         fontColor: Charts.colors.gray,
-    //                         max: 10,
-    //                     },
-    //                     gridLines: {
-    //                         drawBorder: true,
-    //                         color: Charts.colors.black,
-    //                     }
-    //                 }],
-    //             },
-    //         }
-    //     });
-    // });
+        var data = [];
+        var labels = [];
+        // var tech = [];
+
+        for (var i = 0; i < result.length; i++) {
+            labels.push(result[i].date);
+            data.push(result[i].effi);
+        }
+
+        var ch = {
+            labels: labels,
+            datasets: [{
+                label: "Workshop Efficiency",
+                data: data,
+                backgroundColor: "#F4A460",
+                borderColor: "#212529",
+                borderWidth: 2,
+            }],
+        };
+
+        //DAILY
+
+        var daily = {
+            type: 'line',
+            data: ch,
+            options: {
+                responsive: true,
+                global: {
+                    defaultFontColor: 'white',
+                },
+                legend: {
+                    labels: {
+                        fontColor: 'white',
+                    }
+                },
+                // title:      {
+                //     display: true,
+                //     text:    "Chart.js Time Scale"
+                // },
+                scales: {
+                    xAxes: [{
+                        type: "time",
+                        time: {
+                            unit: 'day',
+                            format: 'YYYY-MM-DD',
+                            tooltipFormat: 'll',
+                            displayFormats: {
+                                day: 'MMM DD',
+                            }
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date',
+                            fontColor: 'white',
+                        },
+                        ticks: {
+                            fontColor: 'white',
+                            autoSkip: true,
+                            maxTicksLimit: 10.5,
+                            // source: labels,
+                        },
+                        distribution: 'linear',
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Percentage (%)',
+                            fontColor: 'white',
+                        },
+                        ticks: {
+                            fontColor: 'white',
+                        },
+                        gridLines: {
+                            // drawBorder: true,
+                            color: 'white',
+                        }
+                        // fontColor: 'white',
+
+                    }]
+                }
+            }
+        };
+
+        //MONTHLY
+
+        var monthly = {
+            type: 'line',
+            data: ch,
+            options: {
+                responsive: true,
+                global: {
+                    defaultFontColor: 'white',
+                },
+                legend: {
+                    labels: {
+                        fontColor: 'white',
+                    }
+                },
+                // title:      {
+                //     display: true,
+                //     text:    "Chart.js Time Scale"
+                // },
+                scales: {
+                    xAxes: [{
+                        type: "time",
+                        time: {
+                            unit: 'month',
+                            format: 'YYYY-MM-DD',
+                            tooltipFormat: 'll',
+                            displayFormats: {
+                                month: 'MMM YYYY',
+                            }
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date',
+                            fontColor: 'white',
+                        },
+                        ticks: {
+                            fontColor: 'white',
+                            // source: 'data',
+                            autoSkip: true,
+                            maxTicksLimit: 10.1,
+                            // source: labels,
+                        },
+                        // distribution: 'series',
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Percentage (%)',
+                            fontColor: 'white',
+                        },
+                        ticks: {
+                            fontColor: 'white',
+                        },
+                        gridLines: {
+                            // drawBorder: true,
+                            color: 'white',
+                        }
+                        // fontColor: 'white',
+
+                    }]
+                }
+            }
+        };
+
+        var ctx1       = document.getElementById("canvas").getContext("2d");
+        var myLine = new Chart(ctx1, daily);
+
+        $("#daily").on("click", function() {
+            var ctx1 = document.getElementById("canvas").getContext("2d");
+            var myLine = new Chart(ctx1, daily);
+        });
+        $("#monthly").on("click", function() {
+            var ctx2 = document.getElementById("canvas").getContext("2d");
+            var myLine = new Chart(ctx2, monthly);
+        });
+    });
+
+
+    $.getJSON("/techeffi", function(result) {
+
+        var data = [];
+        var labels = [];
+        var tech = [];
+
+        for (var i = 0; i < result.length; i++) {
+            // labels.push(result[i].day);
+            data.push(result[i].teffi);
+            tech.push(result[i].tech_name);
+        }
+        var ctz = $("#canvas1");
+
+        // var ctz = $("#chart-com");
+
+        var ch = {
+            labels: tech,
+            datasets: [
+                {
+                    label: "Technician Efficiency",
+                    data: data,
+                    backgroundColor : "#b52f12",
+                    borderColor : "#F4A460",
+                    borderWidth: 2,
+                    fill: false,
+                },
+            ],
+        };
+
+        var mychart = new Chart(ctz, {
+            type: 'bar',
+            data: ch,
+            options: {
+                responsive: true,
+                global: {
+                    defaultFontColor: 'white',
+                },
+                legend: {
+                    labels: {
+                        fontColor: 'white',
+                    }
+                },
+                // title:      {
+                //     display: true,
+                //     text:    "Chart.js Time Scale"
+                // },
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Technician',
+                            fontColor: 'white',
+                        },
+                        ticks: {
+                            fontColor: 'white',
+                        },
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Percentage (%)',
+                            fontColor: 'white',
+                        },
+                        ticks: {
+                            fontColor: 'white',
+                        },
+                        gridLines: {
+                            // drawBorder: true,
+                            color: 'white',
+                        }
+                        // fontColor: 'white',
+
+                    }]
+                }
+            }
+        });
+    });
 
 
     $.getJSON("/unres", function(result) {
@@ -155,7 +268,107 @@ $(function() {
         document.getElementById('unrel').innerHTML=dat;
     });
 
+    // //TECH EFFICIENCY
+    //
+    // var timeFormat1 = 'DD/MM/YYYY';
+    //
+    // var config1 = {
+    //     type:    'line',
+    //     data:    {
+    //         datasets: [
+    //             {
+    //                 label: 'Jose Rizal',
+    //                 data: [{
+    //                     x: "17/02/2020", y: 40
+    //                 }, {
+    //                     x: "18/02/2020", y: 50
+    //                 }, {
+    //                     x: "19/02/2020", y: 55
+    //                 }, {
+    //                     x: "20/02/2020", y: 67
+    //                 }],
+    //                 // backgroundColor: "#F4A460",
+    //                 borderColor: "#F4A460"
+    //             },
+    //             {
+    //                 label: 'Juan Dela Cruz',
+    //                 data: [{
+    //                     x: "17/02/2020", y: 50
+    //                 }, {
+    //                     x: "18/02/2020", y: 58
+    //                 }, {
+    //                     x: "19/02/2020", y: 75
+    //                 }, {
+    //                     x: "20/02/2020", y: 69
+    //                 }],
+    //                 // backgroundColor: "#F4A460",
+    //                 borderColor: "#b52f12"
+    //             },
+    //         ]
+    //     },
+    //     options: {
+    //         responsive: true,
+    //         global: {
+    //             defaultFontColor : 'white',
+    //         },
+    //         legend: {
+    //             labels: {
+    //                 fontColor: 'white',
+    //             }
+    //         },
+    //         // title:      {
+    //         //     display: true,
+    //         //     text:    "Chart.js Time Scale"
+    //         // },
+    //         scales:     {
+    //             xAxes: [{
+    //                 type:       "time",
+    //                 time: {
+    //                     unit: 'day',
+    //                     format: timeFormat1,
+    //                     tooltipFormat: 'll',
+    //                     displayFormats: {
+    //                         day: 'MMM D',
+    //                     }
+    //                 },
+    //                 scaleLabel: {
+    //                     display:     true,
+    //                     labelString: 'Date',
+    //                     fontColor: 'white',
+    //                 },
+    //                 ticks: {
+    //                     fontColor: 'white',
+    //                 },
+    //             }],
+    //             yAxes: [{
+    //                 scaleLabel: {
+    //                     display: true,
+    //                     labelString: 'Percentage (%)',
+    //                     fontColor: 'white',
+    //                 },
+    //                 ticks: {
+    //                     fontColor: 'white',
+    //                 },
+    //                 gridLines: {
+    //                     // drawBorder: true,
+    //                     color: 'white',
+    //                 }
+    //                 // fontColor: 'white',
+    //
+    //             }]
+    //         }
+    //     }
+    // };
+
+    // var ctx1       = document.getElementById("canvas1").getContext("2d");
+    // var myLine = new Chart(ctx1, config1);
+    //
+
 });
+
+
+
+
 
 
 

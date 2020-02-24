@@ -17,4 +17,10 @@ class Queuing extends Model
 
     protected $table ='queuing';
 
+    protected $primaryKey = 'queue_id';
+
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
 }

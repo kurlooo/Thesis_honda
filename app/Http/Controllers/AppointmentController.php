@@ -12,7 +12,7 @@ class AppointmentController extends Controller
 
     public function index()
     {
-        $appoints = Appointments::all();
+        $appoints = Appointments::all()->sortByDesc('created_at');
 
         return view('svcmktg.svcmktg',compact('appoints'));
     }
@@ -40,7 +40,7 @@ class AppointmentController extends Controller
 //        }
 
         $request->validate([
-            'plate_no' => ['required','string','max:8','unique:appointments'],
+            'plate_no' => ['required','string','max:8'],
             'serviceType' => 'required',
             'datetime' => 'required',
         ]);
@@ -58,14 +58,14 @@ class AppointmentController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit($apt_id)
     {
-        $appoint = Appointments::find($id);
+        $appoint = Appointments::find($apt_id);
 
         return view('svcmktg.edit', compact('appoint'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $apt_id)
     {
         $request->validate([
             'plate_no' => 'required',
@@ -73,7 +73,7 @@ class AppointmentController extends Controller
             'datetime' => 'required',
         ]);
 
-        $appoint = Appointments::find($id);
+        $appoint = Appointments::find($apt_id);
 
         $appoint-> plate_no = $request-> plate_no;
         $appoint-> serviceType = $request-> serviceType;
@@ -90,9 +90,9 @@ class AppointmentController extends Controller
      * @param $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($apt_id)
     {
-        $appoint = Appointments::find($id);
+        $appoint = Appointments::find($apt_id);
         $appoint->delete();
 
 

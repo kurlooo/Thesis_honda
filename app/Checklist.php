@@ -15,4 +15,6 @@ class Checklist extends Model
 
     protected $table ='checklisting';
 
+    protected $primaryKey = 'check_id';
+
 }

@@ -27,6 +27,17 @@
                 </div>
             @endif
 
+            @if ($message = Session::get('error'))
+
+                <div class="alert alert-warning alert-block">
+
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+
+                    <strong>{{ $message }}</strong>
+
+                </div>
+            @endif
+
             <table id="datatable" class="table bg-light table-hover display responsive">
                 <thead class="thead-dark">
                 <tr>
@@ -36,7 +47,7 @@
                     <th>Customer Name</th>
                     <th>Plate No</th>
                     <th>Model/Yr</th>
-                    <th>Promise Time</th>
+{{--                    <th>Promise Time</th>--}}
                     <th>Time In 1</th>
                     <th>Time Out 1</th>
                     <th>Time In 2</th>
@@ -58,7 +69,7 @@
                         <td>{{ $job->cust_name }}</td>
                         <td>{{ $job->plate_no }}</td>
                         <td>{{ $job->model }}</td>
-                        <td>{{ $job->pro_time }}</td>
+{{--                        <td>{{ $job->pro_time }}</td>--}}
                         <td>{{ $job->time_in1 }}</td>
                         <td>{{ $job->time_out1 }}</td>
                         <td>{{ $job->time_in2 }}</td>
@@ -69,7 +80,8 @@
                         <td>{{ $job->qc }}</td>
                         <td>{{ $job->rlsd }}</td>
                         <td>
-                            <form method="get" action="{{ route('jobctrl.checkout', $job->id) }}">
+                            <a href="{{ route('jobctrl.edit', $job->RO_no) }}"><button type="button" class="btn btn-warning float-left mr-1">Edit</button></a>
+                            <form method="get" action="{{ route('jobctrl.checkout', $job->RO_no) }}">
                                 <button type="submit" class="btn btn-success float-left">Checkout</button>
                             </form>
                         </td>
@@ -91,7 +103,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form class="event" method="post" action="{{ route('jobctrl.store') }}">
+                    <form class="event" method="post" action="{{ route('jobctrl.store') }}" autocomplete="off">
                         @csrf
                         <div class="modal-body">
                             <div class="row ml-2">
@@ -173,13 +185,13 @@
                             <div class="row ml-2">
                                 <div class="col-md-8 mb-4">
                                     <div class="form-group">
-                                        <label class="required" for="datetimepicker1">Promise Time </label>
-                                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                                            <input id="datetime" name="pro_time" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" required/>
-                                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        <label class="required" for="datetimepicker3">Flat Rate Time (FRT)  </label>
+                                        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+                                            <input id="datetime" name="frt" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" required/>
+                                            <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="far fa-clock"></i></div>
                                             </div>
-                                            @error('pro_time')
+                                            @error('frt')
                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
@@ -208,7 +220,7 @@
                 $.fn.datetimepicker.Constructor.Default = $.extend({},
                     $.fn.datetimepicker.Constructor.Default, {
                         icons: {
-                            time: 'fas fa-clock',
+                            time: 'far fa-clock',
                             date: 'fas fa-calendar',
                             up: 'fas fa-arrow-up',
                             down: 'fas fa-arrow-down',
@@ -220,8 +232,8 @@
                         }
                     });
 
-                $('#datetimepicker1').datetimepicker({
-                    format: 'MMM DD YYYY hh:mm A'
+                $('#datetimepicker3').datetimepicker({
+                    format: 'HH:mm:ss'
                 });
             });
 

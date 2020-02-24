@@ -43,8 +43,8 @@
                                     <td>{{ $appoint->datetime }}</td>
                                     <td>{{ $appoint->remarks }}</td>
                                     <td>
-                                        <a href="{{ route('appointment.edit', $appoint->id) }}"><button type="button" class="btn btn-warning float-left mr-1">Edit</button></a>
-                                        <form method="post" action="{{ route('appointment.destroy', $appoint->id) }}">
+                                        <a href="{{ route('appointment.edit', $appoint->apt_id) }}"><button type="button" class="btn btn-warning float-left mr-1">Edit</button></a>
+                                        <form method="post" action="{{ route('appointment.destroy', $appoint->apt_id) }}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger float-left">Delete</button>
@@ -68,7 +68,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="post" action="{{ route('appointment.store') }}">
+                    <form method="post" action="{{ route('appointment.store') }}" autocomplete="off">
                         @csrf
                         <div class="modal-body">
                                 <div class="row ml-2">

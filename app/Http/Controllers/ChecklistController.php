@@ -99,4 +99,11 @@ class ChecklistController extends Controller
 
         return response()->json($last);
     }
+
+    public function kmread()
+    {
+        $last = DB::table('queuing')->select('km_reading')->get();
+
+        return response()->json($last);
+    }
 }

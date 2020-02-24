@@ -14,25 +14,28 @@ class CreateJobctrlTable extends Migration
     public function up()
     {
         Schema::create('jobctrl', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('RO_no')->unique();
+            $table->integer('RO_no');
             $table->string('workbay_id');
             $table->string('cust_name');
             $table->string('plate_no',8);
-            $table->string('model')->unique();
+            $table->string('model');
             $table->string('pro_time')->nullable();
             $table->time('time_in1')->nullable();
             $table->time('time_out1')->nullable();
             $table->time('time_in2')->nullable();
             $table->time('time_out2')->nullable();
             $table->string('total_time')->nullable();
+            $table->string('total_time2')->nullable();
             $table->string('frt')->nullable();
+            $table->string('frt2')->nullable();
             $table->string('tech_name');
             $table->time('qc')->nullable();
             $table->time('rlsd')->nullable();
             $table->integer('flag')->nullable();
             $table->integer('flag2')->nullable();
             $table->timestamps();
+            $table->primary('RO_no');
+
         });
     }
 

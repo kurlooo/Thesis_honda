@@ -14,9 +14,8 @@ class CreateQueuingTable extends Migration
     public function up()
     {
         Schema::create('queuing', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('queue_id');
             $table->string('plate_no')->nullable();
-            $table->string('queue_id')->nullable();
             $table->string('cust_name')->nullable();
             $table->string('date')->nullable();
             $table->string('reg_address')->nullable();
@@ -40,6 +39,8 @@ class CreateQueuingTable extends Migration
             $table->string('rustproof_remarks')->nullable();
             $table->string('guard_name')->nullable();
             $table->timestamps();
+            $table->primary('queue_id');
+
         });
     }
 

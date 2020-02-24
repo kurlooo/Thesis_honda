@@ -50,7 +50,7 @@ Route::middleware('svcmktg','auth')->group(function(){
 //Route::get('/appointment','AppointmentController@destroy')->name('panas')->middleware('svcmktg','auth');
 
 Route::middleware('jobctrl','auth')->group(function(){
-    Route::resource('/jobctrl','JobCtrlController',['except' => ['show','create','edit','destroy','update']]);
+    Route::resource('/jobctrl','JobCtrlController',['except' => ['show','create','destroy']]);
     Route::get('/jobctrl/{jobctrl}','JobCtrlController@checkout')->name('jobctrl.checkout');
     Route::get('/jobctrl/get/{plate_no}','JobCtrlController@comp');
     Route::get('/tech','JobCtrlController@comptek');
@@ -82,6 +82,8 @@ Route::get('engine_no','ChecklistController@engine_no');
 Route::get('model','ChecklistController@mdl');
 
 Route::get('color','ChecklistController@color');
+
+Route::get('km_reading','ChecklistController@kmread');
 
 
 //JOB CONTROLL DROPDOWN
@@ -119,7 +121,7 @@ Route::get('tout2','TestController@tout2');
 
 Route::get('tin','TestController@tin');
 
-//Route::get('/backup','TestController@test')->name('test');
+Route::get('/test','TestController@test')->name('test');
 //DASHBOARD
 
 Route::get('/overview', 'HomeController@index2')->name('dashb')->middleware('can:show-dash','auth');
@@ -127,6 +129,9 @@ Route::get('/overview', 'HomeController@index2')->name('dashb')->middleware('can
 Route::get('unres','DashboardController@ttlveh'); // units received
 Route::get('uncom','DashboardController@ttlcom'); // units completed
 Route::get('unrel','DashboardController@ttlrel'); // units released
+Route::get('effi','DashboardController@ttleff'); // workbay efficiency
+Route::get('techeffi','DashboardController@ttltech'); // technician efficiency)
+
 
 
 Route::group(['middleware' => 'auth'], function () {

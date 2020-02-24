@@ -11,4 +11,6 @@ class Appointments extends Model
     ];
 
     protected $table ='appointments';
+
+    protected $primaryKey = 'apt_id';
 }

@@ -14,7 +14,7 @@ class CreateChecklistingTable extends Migration
     public function up()
     {
         Schema::create('checklisting', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('check_id');
             $table->string('plate_no')->nullable();
             $table->string('cust_name')->nullable();
             $table->string('engine_no')->nullable();

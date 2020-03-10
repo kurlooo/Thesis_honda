@@ -25,9 +25,9 @@ class DashboardController extends Controller
     {
         $count = DB::table('jobctrl')
             ->select(DB::raw('count(*) as tcount'))
+            ->whereDate('created_at', '=', Carbon::today())
             ->whereNotNull('time_out1')
             ->orwhereNotNull('time_out2')
-            ->whereDate('created_at', '=', Carbon::today())
 //            ->groupBy('workbay_id')
             ->get();
 
@@ -67,7 +67,7 @@ class DashboardController extends Controller
 //        return bcmul("$hat","$hun",2); //percent
 
         $lol = DB::table('jobctrl')
-            ->selectRaw("DATE(created_at) as date,(SUM(TIME_TO_SEC(frt2))/SUM(TIME_TO_SEC(total_time2))*100) as effi")
+            ->selectRaw("DATE(created_at) as date, (SUM(TIME_TO_SEC(frt2))/SUM(TIME_TO_SEC(total_time2))*100) as effi")
 //            ->whereDay('created_at',date('d'))
 //            ->whereMonth('created_at', date('m'))
             ->whereYear('created_at', date('Y'))
@@ -90,7 +90,7 @@ class DashboardController extends Controller
             ->selectRaw('tech_name, (SUM(TIME_TO_SEC(frt2))/SUM(TIME_TO_SEC(total_time2))*100) as teffi')
 //            ->whereMonth('created_at', date('m'))
             ->groupBy('tech_name')
-            ->groupBy(DB::raw('MONTH(created_at)'))
+//            ->groupBy(DB::raw('MONTH(NOW())'))
             ->get();
 
         return $tech;

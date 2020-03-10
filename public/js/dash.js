@@ -45,11 +45,16 @@ $(function() {
                         type: "time",
                         time: {
                             unit: 'day',
-                            format: 'YYYY-MM-DD',
+                            // format: 'HH:mm:ss',
                             tooltipFormat: 'll',
-                            displayFormats: {
-                                day: 'MMM DD',
-                            }
+                            // displayFormats: {
+                            //     minute: 'LT',
+                            // }
+                            // unit: 'minute',
+                            // displayFormats: {
+                            //     minute: 'lll',
+                            // },
+                            // tooltipFormat: 'lll',
                         },
                         scaleLabel: {
                             display: true,
@@ -60,7 +65,7 @@ $(function() {
                             fontColor: 'white',
                             autoSkip: true,
                             maxTicksLimit: 10.5,
-                            // source: labels,
+                            source: labels,
                         },
                         distribution: 'linear',
                     }],
@@ -108,11 +113,11 @@ $(function() {
                         type: "time",
                         time: {
                             unit: 'month',
-                            format: 'YYYY-MM-DD',
+                            // format: 'YYYY-MM-DD',
                             tooltipFormat: 'll',
-                            displayFormats: {
-                                month: 'MMM YYYY',
-                            }
+                            // displayFormats: {
+                            //     month: 'LL',
+                            // }
                         },
                         scaleLabel: {
                             display: true,
@@ -243,27 +248,27 @@ $(function() {
 
     $.getJSON("/unres", function(result) {
 
-        var dat = [];
+        var dat;
 
-        dat.push(result[0].tcount);
+        dat.push(result.tcount);
 
         document.getElementById('unres').innerHTML=dat;
     });
 
     $.getJSON("/uncom", function(result) {
 
-        var dat = [];
+        var dat;
 
-        dat.push(result[0].tcount);
+        dat.push(result.tcount);
 
         document.getElementById('uncom').innerHTML=dat;
     });
 
     $.getJSON("/unrel", function(result) {
 
-        var dat = [];
+        var dat;
 
-        dat.push(result[0].tcount);
+        dat.push(result.tcount);
 
         document.getElementById('unrel').innerHTML=dat;
     });

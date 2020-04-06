@@ -28,6 +28,8 @@ class CreateJobctrlTable extends Migration
             $table->string('total_time2')->nullable();
             $table->string('frt')->nullable();
             $table->string('frt2')->nullable();
+            $table->integer('hour')->nullable();
+            $table->integer('min')->nullable();
             $table->string('tech_name');
             $table->time('qc')->nullable();
             $table->time('rlsd')->nullable();

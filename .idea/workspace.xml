@@ -6,8 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="7999b700-5688-4f83-a3ab-137573849a94" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobCtrlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobCtrlController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Workbay1Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Workbay1Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Workbay2Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Workbay2Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JobCtrlSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JobCtrlSheet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_26_071822_create_appointments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_26_071822_create_appointments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_27_183825_create_jobctrl_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_27_183825_create_jobctrl_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/dash.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/jobctrl/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobctrl/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/jobctrl/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobctrl/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/svcmktg/svcmktg.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/svcmktg/svcmktg.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,19 +199,19 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/js" />
-      <recent name="$PROJECT_DIR$/resources/js" />
-      <recent name="$PROJECT_DIR$/public/img" />
-      <recent name="$PROJECT_DIR$/public/fonts" />
-      <recent name="$PROJECT_DIR$/resources/views/pages" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Api/Auth" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Api" />
       <recent name="$PROJECT_DIR$/public/js" />
       <recent name="$PROJECT_DIR$/public/fonts" />
       <recent name="$PROJECT_DIR$/resources/views/svcmktg" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/js" />
+      <recent name="$PROJECT_DIR$/resources/js" />
+      <recent name="$PROJECT_DIR$/public/img" />
+      <recent name="$PROJECT_DIR$/public/fonts" />
+      <recent name="$PROJECT_DIR$/resources/views/pages" />
     </key>
   </component>
   <component name="RunManager" selected="Shell Script.backup.sh">
@@ -326,7 +336,12 @@
       <workItem from="1583423839074" duration="786000" />
       <workItem from="1583425909023" duration="165000" />
       <workItem from="1583491367046" duration="1305000" />
-      <workItem from="1583841982132" duration="718000" />
+      <workItem from="1583841982132" duration="1069000" />
+      <workItem from="1583843997966" duration="12293000" />
+      <workItem from="1582937209128" duration="632000" />
+      <workItem from="1582946926606" duration="3000" />
+      <workItem from="1584518024974" duration="600000" />
+      <workItem from="1586155662378" duration="227000" />
     </task>
     <task id="LOCAL-00001" summary="Modifying Contents of Update Button in User Mgmt">
       <created>1573916072054</created>
@@ -489,7 +504,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582516466018</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="FINAL v1.0">
+      <created>1583842764697</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1583842764697</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,7 +551,9 @@
     <MESSAGE value="Job Ctrl Sheet autocomplete" />
     <MESSAGE value="Laravel Passport login for android and manual backup for db" />
     <MESSAGE value="JOBCTRLLER FRT AND ERROR MSG, ADMIN DASHBOARD FIN" />
-    <option name="LAST_COMMIT_MESSAGE" value="JOBCTRLLER FRT AND ERROR MSG, ADMIN DASHBOARD FIN" />
+    <MESSAGE value="FINAL v1.0" />
+    <MESSAGE value="FINAL v2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINAL v2.0" />
   </component>
   <component name="WindowStateProjectService">
     <state x="564" y="214" width="802" height="679" key="#Inspections" timestamp="1579506294470">
@@ -560,10 +584,6 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="675" y="279" width="626" height="546" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578668288627" />
-    <state x="725" y="300" width="526" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575871752657">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="725" y="300" width="526" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1575871752657" />
     <state x="907" y="309" width="526" height="486" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582478605709">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -572,10 +592,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="595" y="183" width="739" height="741" key="#public/67.27.1853.1053@67.27.1853.1053" timestamp="1579506253348" />
-    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2" timestamp="1583842738769">
+    <state x="555" y="148" width="1307" height="809" key="CommitChangelistDialog2" timestamp="1586155887867">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="555" y="148" width="866" height="809" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1583842738769" />
+    <state x="555" y="148" width="1307" height="809" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1586155887867" />
     <state x="356" y="127" width="1454" height="853" key="DiffContextDialog" timestamp="1580327086226">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -584,10 +604,6 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="752" y="310" width="426" height="486" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1579503970759" />
-    <state x="788" y="477" width="401" height="151" key="NewPhpFileDialog" timestamp="1576671438724">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="788" y="477" width="401" height="151" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576671438724" />
     <state x="728" y="276" width="521" height="552" key="RollbackChangesDialog" timestamp="1580326794931">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -596,14 +612,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="653" height="452" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1582232969526" />
-    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1582516470544">
+    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1583842766867">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1582516470544" />
-    <state x="647" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1583842094617">
+    <state x="587" y="287" width="802" height="530" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1583842766867" />
+    <state x="647" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1586155662388">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="647" y="379" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583842094617" />
+    <state x="647" y="379" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1586155662388" />
     <state x="1022" y="161" width="859" height="783" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579708991690">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -620,10 +636,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583491710819" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1583492785349">
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1583856141802">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583492785349" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583856141802" />
     <state x="717" y="465" width="542" height="174" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1580537462943">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

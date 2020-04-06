@@ -56,11 +56,6 @@ $(function() {
                             // },
                             // tooltipFormat: 'lll',
                         },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Date',
-                            fontColor: 'white',
-                        },
                         ticks: {
                             fontColor: 'white',
                             autoSkip: true,
@@ -118,11 +113,6 @@ $(function() {
                             // displayFormats: {
                             //     month: 'LL',
                             // }
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Date',
-                            fontColor: 'white',
                         },
                         ticks: {
                             fontColor: 'white',

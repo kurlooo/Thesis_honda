@@ -34,12 +34,12 @@ class Workbay1Controller extends Controller
                 ->update(['time_in1' => Carbon::now()->subSeconds(10)->toTimeString(), 'flag' => '1']);
 
 
-            $hat = $this->getfrt();
-
-            JobCtrlSheet::where('plate_no', $lastplate)
-                ->where('flag', '1')
-                ->whereNotNull('time_in1')
-                ->update(['frt2' => $hat]);
+//            $hat = $this->getfrt();
+//
+//            JobCtrlSheet::where('plate_no', $lastplate)
+//                ->where('flag', '1')
+//                ->whereNotNull('time_in1')
+//                ->update(['frt2' => $hat]);
         }
         elseif($flg=='1'){
 //            $lastplate = $new->plate_no;
@@ -237,19 +237,19 @@ class Workbay1Controller extends Controller
 
         return $total->diff($zero)->format('%H:%i:%s');
     }
-
-    public function getfrt(){
-        $lol = JobCtrlSheet::where('workbay_id','1')
-            ->whereNull('rlsd')
-            ->whereNotNull('time_in1')
-            ->first();
-
-        $min = Carbon::parse($lol->time_in1);
-        $max = Carbon::parse($lol->frt);
-
-        return $max->diff($min)->format('%H:%i:%s');
-
-    }
+//
+//    public function getfrt(){
+//        $lol = JobCtrlSheet::where('workbay_id','1')
+//            ->whereNull('rlsd')
+//            ->whereNotNull('time_in1')
+//            ->first();
+//
+//        $min = Carbon::parse($lol->time_in1);
+//        $max = Carbon::parse($lol->frt);
+//
+//        return $max->diff($min)->format('%H:%i:%s');
+//
+//    }
 
 
 }

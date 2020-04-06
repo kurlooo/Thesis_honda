@@ -103,14 +103,14 @@
                                     <label class="required" for="datetimepicker1">Date and Time </label>
                                     <div class="form-group">
                                         <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                                            <input id="datetime" name="datetime" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" required/>
+                                            <input id="datetime" name="datetime" type="text" class="form-control datetimepicker-input @error('datetime') is-invalid @enderror" data-target="#datetimepicker1" required/>
                                             <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
                                             @error('datetime')
                                             <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
+                                                <strong>{{'Date/Time already assigned. Please choose another.'}}</strong>
+                                            </span>
                                             @enderror
                                         </div>
                                     </div>

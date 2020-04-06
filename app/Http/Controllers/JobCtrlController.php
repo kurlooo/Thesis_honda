@@ -12,8 +12,8 @@ class JobCtrlController extends Controller
 
     public function index()
     {
-        $jobs = JobCtrlSheet::all()->sortBy('created_at');
-//        $jobs = JobCtrlSheet::whereDate('created_at', Carbon::today())->get();
+//        $jobs = JobCtrlSheet::all()->sortBy('created_at');
+        $jobs = JobCtrlSheet::whereDate('created_at', Carbon::today())->get();
         return view('jobctrl.index',compact('jobs'));
     }
 
@@ -27,7 +27,9 @@ class JobCtrlController extends Controller
             'cust_name' => 'required',
             'plate_no' => ['required','string','max:8'],
             'model' => 'required',
-            'frt' => 'required',
+//            'frt' => 'required',
+            'hour' => 'required',
+            'min' => 'required',
         ]);
 
         $job = new JobCtrlSheet([
@@ -37,7 +39,9 @@ class JobCtrlController extends Controller
             'cust_name' => $request->cust_name,
             'plate_no' => $request->plate_no,
             'model' => $request->model,
-            'frt' => $request->frt,
+//            'frt' => $request->frt,
+            'hour' => $request->hour,
+            'min' => $request->min,
         ]);
 
         $job->save();
@@ -56,22 +60,23 @@ class JobCtrlController extends Controller
     {
         $request->validate([
             'frt' => 'required',
-
         ]);
 
         $jab = JobCtrlSheet::find($RO_no);
 
         $plate = $jab->plate_no;
         $rono = $jab->RO_no;
-        $jab-> frt = $request-> frt;
+//        $jab-> frt = $request-> frt;
+        $jab-> hour = $request->hour;
+        $jab-> min = $request->min;
         $jab->save();
 
         $msg = "$plate FRT updated successfully!";
 
-        $hat = $this->updit($rono);
-
-        JobCtrlSheet::where('RO_no',$rono)
-            ->update(['frt2'=>$hat]);
+//        $hat = $this->updit($rono);
+//
+//        JobCtrlSheet::where('RO_no',$rono)
+//            ->update(['frt2'=>$hat]);
 
         return redirect()->route('jobctrl.index')->with('success', $msg);
     }

@@ -66,13 +66,13 @@ class DashboardController extends Controller
 //
 //        return bcmul("$hat","$hun",2); //percent
 
-        $lol = DB::table('jobctrl')
-            ->selectRaw("DATE(created_at) as date, (SUM(TIME_TO_SEC(frt2))/SUM(TIME_TO_SEC(total_time2))*100) as effi")
-//            ->whereDay('created_at',date('d'))
-//            ->whereMonth('created_at', date('m'))
-            ->whereYear('created_at', date('Y'))
-            ->groupBy('date')
-            ->get();
+//        $lol = DB::table('jobctrl')
+//            ->selectRaw("DATE(created_at) as date, (SUM(TIME_TO_SEC(frt2))/(SUM(hour)+SUM(min))*100) as effi")
+////            ->whereDay('created_at',date('d'))
+////            ->whereMonth('created_at', date('m'))
+//            ->whereYear('created_at', date('Y'))
+//            ->groupBy('date')
+//            ->get();
 
         //MONTHLY
 //        $lol = DB::table('jobctrl')
@@ -81,13 +81,23 @@ class DashboardController extends Controller
 //            ->groupBy('date')
 //            ->get();
 
+        $lol = DB::table('jobctrl')
+            ->selectRaw("DATE(created_at) as date, (((SUM(hour)*3600)+(SUM(min)*60))/SUM(TIME_TO_SEC(total_time2)))*100 as effi")
+//            ->selectRaw("((SUM(min))/60)")
+
+            //            ->whereDay('created_at',date('d'))
+//            ->whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('date')
+            ->get();
+
         return $lol;
     }
 
     public function ttltech()
     {
         $tech = DB::table('jobctrl')
-            ->selectRaw('tech_name, (SUM(TIME_TO_SEC(frt2))/SUM(TIME_TO_SEC(total_time2))*100) as teffi')
+            ->selectRaw('tech_name, (((SUM(hour)*3600)+(SUM(min)*60))/SUM(TIME_TO_SEC(total_time2)))*100 as teffi')
 //            ->whereMonth('created_at', date('m'))
             ->groupBy('tech_name')
 //            ->groupBy(DB::raw('MONTH(NOW())'))

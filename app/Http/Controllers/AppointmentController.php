@@ -42,7 +42,7 @@ class AppointmentController extends Controller
         $request->validate([
             'plate_no' => ['required','string','max:8'],
             'serviceType' => 'required',
-            'datetime' => 'required',
+            'datetime' => ['required','unique:appointments'],
         ]);
 
         $appoint = new Appointments([
@@ -70,7 +70,7 @@ class AppointmentController extends Controller
         $request->validate([
             'plate_no' => 'required',
             'serviceType' => 'required',
-            'datetime' => 'required',
+            'datetime' => ['required','unique:appointments'],
         ]);
 
         $appoint = Appointments::find($apt_id);

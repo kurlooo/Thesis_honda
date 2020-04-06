@@ -17,7 +17,7 @@ class CreateAppointmentsTable extends Migration
             $table->bigIncrements('apt_id');
             $table->string('plate_no',8);
             $table->string('serviceType');
-            $table->string('datetime');
+            $table->string('datetime')->unique();
             $table->string('remarks')->nullable();
             $table->timestamps();
         });
